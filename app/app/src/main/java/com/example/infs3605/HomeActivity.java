@@ -56,7 +56,7 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    //Swapfragment method From NYT demo
+    //Swapfragment method From NYT demo (INFS3634)
     private void swapFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
