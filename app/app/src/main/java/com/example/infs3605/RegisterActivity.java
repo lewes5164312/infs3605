@@ -34,7 +34,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_register);
 
         firstNameET = findViewById(R.id.firstName);
@@ -57,6 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+        mAuth = FirebaseAuth.getInstance();
 
     }
 
@@ -69,7 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         email = emailET.getText().toString();
         password = passwordET.getText().toString();
-        passwordConfirm = passwordET.getText().toString();
+        passwordConfirm = passwordConfirmET.getText().toString();
 
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(), "Please enter email...", Toast.LENGTH_LONG).show();
@@ -81,15 +81,18 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-        if (password != passwordConfirm) {
-            Toast.makeText(getApplicationContext(), "Passwords do not match, please try again!", Toast.LENGTH_LONG).show();
-            return;
-        }
-
         if (password.length()<6) {
             Toast.makeText(getApplicationContext(), "Password needs to be minimum 6 characters!", Toast.LENGTH_LONG).show();
             return;
         }
+
+        if (password.equals(passwordConfirm));
+        else {
+            Toast.makeText(getApplicationContext(), "Passwords do not match, please try again!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        Toast.makeText(getApplicationContext(), "Attempting to create user...", Toast.LENGTH_LONG).show();
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
