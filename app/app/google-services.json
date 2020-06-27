@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "546016584306",
+    "firebase_url": "https://infs3605-81741.firebaseio.com",
+    "project_id": "infs3605-81741",
+    "storage_bucket": "infs3605-81741.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:546016584306:android:6996c45a6d801ab2b098eb",
+        "android_client_info": {
+          "package_name": "com.example.infs3605"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "546016584306-d4r38v2euvqv0lpkpgcvog0r52mbrant.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsRj5dXdOu81geQCuFO_b2_oHH-1opMGg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "546016584306-d4r38v2euvqv0lpkpgcvog0r52mbrant.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
