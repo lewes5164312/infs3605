@@ -23,7 +23,7 @@ public class HomeFragment extends Fragment {
         layoutManager = new LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        ArticleAdapter articleAdapter = new ArticleAdapter(HomeActivity.getAllArticles());
+        ArticleAdapter articleAdapter = new ArticleAdapter(MainActivity.getAllArticles());
 
         recyclerView.setAdapter(articleAdapter);
 
