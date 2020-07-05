@@ -1,16 +1,14 @@
 package com.example.infs3605;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
-
-
 import android.app.Notification;
-import android.app.NotificationManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import static com.example.infs3605.Notifications.CHANNEL_1_ID;
 import static com.example.infs3605.Notifications.CHANNEL_2_ID;
@@ -27,14 +25,15 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
         notificationManager = NotificationManagerCompat.from(this);
-              editTextTitle  = findViewById(R.id.edit_text_title);
-            editTextMessage = findViewById(R.id.edit_text_message);
+        editTextTitle  = findViewById(R.id.edit_text_title);
+        editTextMessage = findViewById(R.id.edit_text_message);
 
     }
     public void sendOnChannel1 (View v){
         String title = editTextTitle.getText().toString();
         String message = editTextMessage.getText().toString();
-    Notification notification = new NotificationCompat.Builder(this, CHANNEL_1_ID)
+
+        Notification notification = new NotificationCompat.Builder(this, CHANNEL_1_ID)
         .setSmallIcon(R.drawable.ic_check)
             .setContentTitle (title)
             .setContentText(message)
@@ -57,8 +56,5 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         notificationManager.notify (2, notification);
-
     }
-
-
 }

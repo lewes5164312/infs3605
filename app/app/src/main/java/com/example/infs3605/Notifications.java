@@ -26,6 +26,7 @@ public static final String CHANNEL_1_ID = "channel1";
                     NotificationManager.IMPORTANCE_HIGH
             );
             channel1.setDescription("This is channel 1");
+
             NotificationChannel channel2 = new NotificationChannel(
                     CHANNEL_2_ID,
                     "Channel 2",
@@ -33,8 +34,8 @@ public static final String CHANNEL_1_ID = "channel1";
             );
             channel2.setDescription("This is channel 2");
             NotificationManager manager = getSystemService(NotificationManager.class);
-            manager.createNotificationChannels(Collections.singletonList(channel1));
-            manager.createNotificationChannels(Collections.singletonList(channel2));
+            manager.createNotificationChannel(channel1);
+            manager.createNotificationChannel(channel2);
         }
     }
 }
