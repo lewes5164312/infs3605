@@ -1,11 +1,16 @@
 package com.example.infs3605;
 
+import android.app.Notification;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -23,11 +28,18 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+import static com.example.infs3605.Notifications.CHANNEL_1_ID;
+import static com.example.infs3605.Notifications.CHANNEL_2_ID;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String URL = "https://newsapi.org/v2/top-headlines?q=covid-19&country=au&from=2020-06-15&sortBypopularity&apiKey=8ef436de7eae4edda9e7bda8b6c41ef6";
 
     private static final HashMap<Integer, Article> articleList = new HashMap<>();
+
+    private NotificationManagerCompat notificationManager;
+    private EditText editTextTitle;
+    private EditText editTextMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +48,38 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         loadData();
 
+        notificationManager = NotificationManagerCompat.from(this);
+        editTextTitle  = findViewById(R.id.edit_text_title);
+        editTextMessage = findViewById(R.id.edit_text_message);
+    }
+
+    public void sendOnChannel1 (View v){
+        String title = editTextTitle.getText().toString();
+        String message = editTextMessage.getText().toString();
+
+        Notification notification = new NotificationCompat.Builder(this, CHANNEL_1_ID)
+                .setSmallIcon(R.drawable.ic_check)
+                .setContentTitle (title)
+                .setContentText(message)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .build();
+
+        notificationManager.notify (1, notification);
+    }
+
+    public void sendOnChannel2 (View v){
+
+        String title = editTextTitle.getText().toString();
+        String message = editTextMessage.getText().toString();
+        Notification notification = new NotificationCompat.Builder(this, CHANNEL_2_ID)
+                .setSmallIcon(R.drawable.ic_baseline_check_24)
+                .setContentTitle (title)
+                .setContentText(message)
+                .setPriority(NotificationCompat.PRIORITY_LOW)
+                .build();
+
+        notificationManager.notify (2, notification);
     }
 
     private void loadData() {
