@@ -2,6 +2,7 @@ package com.example.infs3605;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +52,18 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ItemView
         Picasso.with(holder.view.getContext())
                 .load(imageURL)
                 .into((ImageView) holder.imageIV);
+
+        //open url of article if clicked
+
+        holder.view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = view.getContext();
+                Uri articleUrl = Uri.parse(articleAtPosition.getUrl());
+                Intent launchbrowser = new Intent(Intent.ACTION_VIEW, articleUrl);
+                context.startActivity(launchbrowser);
+            }
+        });
 
 
     }
