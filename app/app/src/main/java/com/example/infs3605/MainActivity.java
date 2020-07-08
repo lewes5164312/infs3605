@@ -59,8 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
                                 articleList.put(i, new Article(
                                         i,
-                                        //o.getString("author"),
-                                        "",
+                                        o.getString("author"),
                                         o.getString("title"),
                                         o.getString("description"),
                                         o.getString("url"),

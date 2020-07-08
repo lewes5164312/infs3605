@@ -19,7 +19,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText emailET;
     private EditText passwordET;
-
+private Button signupBTN;
     private Button loginBTN;
     private FirebaseAuth mAuth;
 
@@ -32,13 +32,19 @@ public class LoginActivity extends AppCompatActivity {
         emailET = findViewById(R.id.email);
         passwordET = findViewById(R.id.password);
         loginBTN = findViewById(R.id.login);
-
+        signupBTN = findViewById(R.id.signup);
         mAuth = FirebaseAuth.getInstance();
 
         loginBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 login();
+            }
+        });
+        signupBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signupClick(v);
             }
         });
     }

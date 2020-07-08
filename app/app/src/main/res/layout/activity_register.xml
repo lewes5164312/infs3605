@@ -1,91 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_vertical"
-    android:orientation="vertical"
-    android:padding="16dp"
+    android:background="@drawable/background_login"
     tools:context=".RegisterActivity">
 
-    <TextView
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create Account" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="24dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="24dp" />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="97dp"
+        android:layout_height="111dp"
+        android:layout_marginTop="7dp"
+        android:src="@drawable/ic_flattr"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/firstName"
-        android:layout_width="match_parent"
+        android:id="@+id/name"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="First Name" />
+        android:layout_marginTop="7dp"
+        android:hint="Your Name"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:padding="16dp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/icon"/>
 
     <EditText
-        android:id="@+id/lastName"
-        android:layout_width="match_parent"
+        android:id="@+id/firstname"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Last Name" />
+        android:layout_marginTop="7dp"
+        android:background="@drawable/text_background"
+        android:hint="First Name"
+        android:padding="5dp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/name"/>
 
     <EditText
-        android:id="@+id/businessName"
-        android:layout_width="match_parent"
+        android:id="@+id/lastname"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Business Name" />
+        android:layout_marginTop="7dp"
+        android:background="@drawable/text_background"
+        android:hint="Last Name"
+        android:padding="5dp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/firstname"/>
 
     <EditText
-        android:id="@+id/jobPosition"
-        android:layout_width="match_parent"
+        android:id="@+id/business"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Job Position" />
-
-    <EditText
-        android:id="@+id/abn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="ABN" />
+        android:layout_marginTop="7dp"
+        android:hint="Business"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:padding="16dp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/lastname"/>
 
     <EditText
         android:id="@+id/industry"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Industry" />
+        android:layout_marginTop="7dp"
+        android:background="@drawable/text_background"
+        android:hint="Industry"
+        android:padding="5dp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/business"/>
 
+    <EditText
+        android:id="@+id/ABN"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/text_background"
+        android:hint="ABN"
+        android:padding="5dp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/industry"/>
+
+    <EditText
+        android:id="@+id/other"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:hint="Other Info"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:padding="16dp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/ABN"/>
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Email Address" />
+        android:layout_marginTop="7dp"
+        android:background="@drawable/text_background"
+        android:hint="Email Address"
+        android:padding="5dp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/other"/>
 
     <EditText
-        android:id="@+id/phone"
-        android:layout_width="match_parent"
+        android:id="@+id/number"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Phone Number" />
+        android:layout_marginTop="7dp"
+        android:background="@drawable/text_background"
+        android:hint="Phone Number"
+        android:padding="5dp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/email"/>
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/text_background"
         android:hint="Password"
-        android:inputType="textPassword" />
+        android:padding="5dp"
+        android:drawableRight="@drawable/ic_eye"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/number"/>
 
     <EditText
         android:id="@+id/passwordConfirm"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/text_background"
         android:hint="Confirm Password"
-        android:inputType="textPassword" />
+        android:padding="5dp"
+        android:drawableRight="@drawable/ic_eye"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/password"/>
 
     <Button
         android:id="@+id/register"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Register" />
+        android:layout_marginTop="20dp"
+        android:text="Confirm"
+        android:textAllCaps="true"
+        android:background="@drawable/button_background"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/passwordConfirm"/>
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

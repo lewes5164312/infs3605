@@ -20,8 +20,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     private EditText firstNameET;
     private EditText lastNameET;
-    private EditText businessNameET;
-    private EditText jobPositionET;
     private EditText abnET;
     private EditText industryET;
     private EditText emailET;
@@ -36,14 +34,12 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        firstNameET = findViewById(R.id.firstName);
-        lastNameET = findViewById(R.id.lastName);
-        businessNameET = findViewById(R.id.businessName);
-        jobPositionET = findViewById(R.id.jobPosition);
-        abnET = findViewById(R.id.abn);
+        firstNameET = findViewById(R.id.firstname);
+        lastNameET = findViewById(R.id.lastname);
+        abnET = findViewById(R.id.ABN);
         industryET = findViewById(R.id.industry);
         emailET = findViewById(R.id.email);
-        phoneET = findViewById(R.id.phone);
+        phoneET = findViewById(R.id.number);
         passwordET = findViewById(R.id.password);
         passwordConfirmET = findViewById(R.id.passwordConfirm);
 
