@@ -46,6 +46,12 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ItemView
 
         holder.titleTV.setText(articleAtPosition.getTitle());
 
+        String imageURL = articleAtPosition.getUtlToImage();
+
+        Picasso.with(holder.view.getContext())
+                .load(imageURL)
+                .into((ImageView) holder.imageIV);
+
 
     }
 
