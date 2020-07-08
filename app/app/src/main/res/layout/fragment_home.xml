@@ -36,11 +36,12 @@
         android:layout_height="wrap_content"
         android:gravity="right"
         android:text="My Dashboard"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        android:padding="16dp"
         android:textStyle="bold"
         android:textSize="30sp"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="150dp"
-        tools:layout_editor_absoluteY="16dp" />
+ />
 
     <TextView
         android:id="@+id/textView"
@@ -58,11 +59,13 @@
         android:layout_height="wrap_content"
         android:gravity="right"
         android:text="Crisis"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/dashboard"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
         android:textSize="25sp"
         android:textStyle="bold"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="318dp"
-        tools:layout_editor_absoluteY="105dp" />
+ />
 
     <GridLayout
         android:layout_width="match_parent"
@@ -208,30 +211,24 @@
 
     </androidx.cardview.widget.CardView>
 
+
+
     <TextView
         android:id="@+id/news"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="right"
         android:text="What's New?"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/c4"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
         android:textSize="25sp"
         android:textStyle="bold"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="239dp"
         tools:layout_editor_absoluteY="401dp" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="239dp"
-        tools:layout_editor_absoluteY="500dp">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_articles"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
-    </ScrollView>
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/c3"
@@ -266,8 +263,22 @@
 
 
 
+
     </androidx.cardview.widget.CardView>
 
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        android:layout_marginTop="70dp"
+        app:layout_constraintTop_toBottomOf="@+id/c3"
+        tools:layout_editor_absoluteX="239dp"
+        tools:layout_editor_absoluteY="500dp">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_articles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

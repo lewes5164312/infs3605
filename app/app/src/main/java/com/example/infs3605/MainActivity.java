@@ -23,8 +23,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -33,7 +35,8 @@ import static com.example.infs3605.Notifications.CHANNEL_2_ID;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String URL = "https://newsapi.org/v2/top-headlines?q=covid-19&country=au&from=2020-06-15&sortBypopularity&apiKey=8ef436de7eae4edda9e7bda8b6c41ef6";
+    private static final String URL = "https://newsapi.org/v2/top-headlines?q=covid-19&country=au&from=" + getDate() + "&sortBypopularity&apiKey=8ef436de7eae4edda9e7bda8b6c41ef6";
+
 
     private static final HashMap<Integer, Article> articleList = new HashMap<>();
 
@@ -47,11 +50,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(intent);
         loadData();
-
         notificationManager = NotificationManagerCompat.from(this);
         editTextTitle  = findViewById(R.id.edit_text_title);
         editTextMessage = findViewById(R.id.edit_text_message);
     }
+
 
     public void sendOnChannel1 (View v){
         String title = editTextTitle.getText().toString();
@@ -80,6 +83,15 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         notificationManager.notify (2, notification);
+    }
+
+    //get date (used in API retrieval)
+
+    public static String getDate() {
+        SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd");
+        Date now = new Date();
+        String date = sdfDate.format(now);
+        return date;
     }
 
     private void loadData() {
