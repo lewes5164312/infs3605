@@ -126,15 +126,15 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewNotifications"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="3 notifications"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintTop_toBottomOf="@+id/dashboard"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="253dp"
-        tools:layout_editor_absoluteY="57dp" />
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/news"
