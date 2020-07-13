@@ -15,6 +15,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -29,6 +31,8 @@ public class RegisterActivity extends AppCompatActivity {
 
     private Button registerBTN;
     private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,22 +57,36 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
 
     }
 
     private void registerUser() {
 
-        String email;
+        final String email;
         String password;
         String passwordConfirm;
-
+        final String industry;
+        final String name;
 
         email = emailET.getText().toString();
         password = passwordET.getText().toString();
         passwordConfirm = passwordConfirmET.getText().toString();
+        name = firstNameET.getText().toString();
+        industry = industryET.getText().toString();
 
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(), "Email is blank, please enter Email", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(name)) {
+            Toast.makeText(getApplicationContext(), "Name is blank, please enter Email", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(industry)) {
+            Toast.makeText(getApplicationContext(), "Industry is blank, please enter Email", Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -96,6 +114,12 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(getApplicationContext(), "Registration successful! Please log in.", Toast.LENGTH_LONG).show();
+                            String user_id=mAuth.getCurrentUser().getUid();
+                            DatabaseReference current_user = mDatabase.child(user_id);
+                            current_user.child("name").setValue(name);
+                            current_user.child("email").setValue(email);
+                            current_user.child("industry").setValue(industry);
+
                             Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                             startActivity(intent);
                         }
@@ -104,6 +128,8 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 });
+
+       // writeNewUserToDB(email,password);
 
     }
 

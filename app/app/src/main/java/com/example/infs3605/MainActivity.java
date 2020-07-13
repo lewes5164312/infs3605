@@ -37,8 +37,10 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String URL = "https://newsapi.org/v2/top-headlines?q=covid-19&country=au&from=" + getDate() + "&sortBypopularity&apiKey=8ef436de7eae4edda9e7bda8b6c41ef6";
 
+    private static final String industryURL = "https://api.jsonbin.io/b/5f0c16e85d4af74b012b85a3/1";
 
     private static final HashMap<Integer, Article> articleList = new HashMap<>();
+    private static final HashMap<Integer, Industry> industryList = new HashMap<>();
 
     private NotificationManagerCompat notificationManager;
     private EditText editTextTitle;
@@ -49,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(intent);
-        loadData();
+        loadArticleData();
+        loadIndustryData();
         notificationManager = NotificationManagerCompat.from(this);
         editTextTitle  = findViewById(R.id.edit_text_title);
         editTextMessage = findViewById(R.id.edit_text_message);
@@ -94,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         return date;
     }
 
-    private void loadData() {
+    private void loadArticleData() {
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading Data...");
         progressDialog.show();
@@ -143,7 +146,62 @@ public class MainActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
+    private void loadIndustryData() {
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading Data...");
+        progressDialog.show();
+
+//retrieve industries from API
+        StringRequest stringRequest = new StringRequest(Request.Method.GET,
+                industryURL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+                        progressDialog.dismiss();
+                        try {
+                            JSONObject jsonObject = new JSONObject(s);
+                            JSONArray array = jsonObject.getJSONArray("industry");
+
+                            for (int i = 0; i < array.length(); i++) {
+                                JSONObject o = array.getJSONObject(i);
+
+                                industryList.put(i, new Industry(
+                                        i,
+                                        o.getString("Name"),
+                                        o.getString("Open"),
+                                        o.getString("Limits"),
+                                        o.getString("Distancing"),
+                                        o.getString("Entitlements"),
+                                        o.getString("Hygiene"),
+                                        o.getString("Records")
+                                ));
+
+
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        progressDialog.dismiss();
+                        Toast.makeText(getApplicationContext(), volleyError.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
+
+
     public static ArrayList<Article> getAllArticles() {
         return new ArrayList<Article>((List) Arrays.asList(articleList.values().toArray()));
+    }
+
+    public static ArrayList<Industry> getAllIndustries() {
+        return new ArrayList<Industry>((List) Arrays.asList(industryList.values().toArray()));
     }
 }
