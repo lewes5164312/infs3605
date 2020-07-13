@@ -29,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText passwordET;
 private Button signupBTN;
     private Button loginBTN;
+    private Button fakeloginBTN;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
 
@@ -41,10 +42,11 @@ private Button signupBTN;
         emailET = findViewById(R.id.email);
         passwordET = findViewById(R.id.password);
         loginBTN = findViewById(R.id.login);
+        fakeloginBTN = findViewById(R.id.fakeLogin);
         signupBTN = findViewById(R.id.signup);
         mAuth = FirebaseAuth.getInstance();
 
-
+        fakeloginBTN.setVisibility(View.INVISIBLE);
 
         loginBTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,18 +85,18 @@ private Button signupBTN;
                             mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
 
 //add name from firebase DB to shared preferences
-
+//reference https://stackoverflow.com/questions/47621936/how-can-i-get-the-child-values-from-firebase-database
                             DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
                             DatabaseReference userRef = rootRef.child("Users").child(user_id);
                             ValueEventListener eventListener = new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
                                     String name = dataSnapshot.child("name").getValue(String.class);
-                                    Log.d("TAG", name);
                                     SharedPreferences sp = getSharedPreferences("Login", 0);
                                     SharedPreferences.Editor ed = sp.edit();
                                     ed.putString("Name",name);
-                                    ed.putString("Industry","ind1");
+                                    String industry = dataSnapshot.child("industry").getValue(String.class);
+                                    ed.putString("Industry",industry);
                                     ed.commit();
                                 }
 
@@ -103,7 +105,7 @@ private Button signupBTN;
                                 }
                             };
                             userRef.addListenerForSingleValueEvent(eventListener);
-                            
+
 
                             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                             startActivity(intent);

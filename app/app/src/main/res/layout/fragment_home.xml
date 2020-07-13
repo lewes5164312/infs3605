@@ -92,7 +92,8 @@
             android:layout_width="199dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:id="@+id/covidLayout">
 
             <ImageView
                 android:layout_width="80dp"

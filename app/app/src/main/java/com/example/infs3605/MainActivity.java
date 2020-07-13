@@ -35,7 +35,7 @@ import static com.example.infs3605.Notifications.CHANNEL_2_ID;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String URL = "https://newsapi.org/v2/top-headlines?q=covid-19&country=au&from=" + getDate() + "&sortBypopularity&apiKey=8ef436de7eae4edda9e7bda8b6c41ef6";
+    private static final String URL = "https://newsapi.org/v2/top-headlines?q=covid&country=au&from=" + getDate() + "&sortBypopularity&apiKey=8ef436de7eae4edda9e7bda8b6c41ef6";
 
     private static final String industryURL = "https://api.jsonbin.io/b/5f0c16e85d4af74b012b85a3/1";
 
@@ -204,4 +204,9 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<Industry> getAllIndustries() {
         return new ArrayList<Industry>((List) Arrays.asList(industryList.values().toArray()));
     }
+
+    public static Industry getIndustryById(int itemID) {
+        return industryList.get(itemID);
+    }
+
 }

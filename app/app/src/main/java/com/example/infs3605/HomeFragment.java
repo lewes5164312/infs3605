@@ -1,6 +1,7 @@
 package com.example.infs3605;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView.LayoutManager layoutManager;
 
     private TextView notificationTV;
+    private View covidView;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -40,9 +42,18 @@ public class HomeFragment extends Fragment {
         SharedPreferences sp1=this.getActivity().getSharedPreferences("Login",0);
         String name =sp1.getString("Name", null);
         String industry = sp1.getString("Industry", null);
-        notificationTV = view.findViewById(R.id.textViewNotifications);
-        notificationTV.setText("Welcome Back, "+ name);
 
+
+        covidView = view.findViewById(R.id.covidLayout);
+
+        covidView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = view.getContext();
+                Intent intent = new Intent(context, IndustryDetailActivity.class);
+                context.startActivity(intent);
+            }
+        });
         return view;
     }
 

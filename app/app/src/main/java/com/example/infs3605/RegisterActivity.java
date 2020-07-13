@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,7 +21,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener  {
+
+    String[] registerIndustry = { "IndustryA", "IndustryB", "IndustryC", "IndustryD"};
+
+    int currentSelection = 0;
 
     private EditText firstNameET;
     private EditText lastNameET;
@@ -41,7 +48,6 @@ public class RegisterActivity extends AppCompatActivity {
         firstNameET = findViewById(R.id.firstname);
         lastNameET = findViewById(R.id.lastname);
         abnET = findViewById(R.id.ABN);
-        industryET = findViewById(R.id.industry);
         emailET = findViewById(R.id.email);
         phoneET = findViewById(R.id.number);
         passwordET = findViewById(R.id.password);
@@ -59,6 +65,13 @@ public class RegisterActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
 
+        Spinner spinner = (Spinner) findViewById(R.id.industry_spinner);
+        spinner.setOnItemSelectedListener(this);
+
+        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,registerIndustry);
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(aa);
     }
 
     private void registerUser() {
@@ -66,14 +79,12 @@ public class RegisterActivity extends AppCompatActivity {
         final String email;
         String password;
         String passwordConfirm;
-        final String industry;
         final String name;
 
         email = emailET.getText().toString();
         password = passwordET.getText().toString();
         passwordConfirm = passwordConfirmET.getText().toString();
         name = firstNameET.getText().toString();
-        industry = industryET.getText().toString();
 
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(), "Email is blank, please enter Email", Toast.LENGTH_LONG).show();
@@ -85,10 +96,6 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-        if (TextUtils.isEmpty(industry)) {
-            Toast.makeText(getApplicationContext(), "Industry is blank, please enter Email", Toast.LENGTH_LONG).show();
-            return;
-        }
 
         if (TextUtils.isEmpty(password)) {
             Toast.makeText(getApplicationContext(), "Password is blank, please enter password", Toast.LENGTH_LONG).show();
@@ -118,7 +125,7 @@ public class RegisterActivity extends AppCompatActivity {
                             DatabaseReference current_user = mDatabase.child(user_id);
                             current_user.child("name").setValue(name);
                             current_user.child("email").setValue(email);
-                            current_user.child("industry").setValue(industry);
+                            current_user.child("industry").setValue(String.valueOf(currentSelection));
 
                             Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                             startActivity(intent);
@@ -133,4 +140,14 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+    currentSelection = i;
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
 }
