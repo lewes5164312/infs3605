@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         loadArticleData();
         loadIndustryData();
 
-       // Toast.makeText(getApplicationContext(), "test test one two three", Toast.LENGTH_LONG).show();
+       Toast.makeText(getApplicationContext(), translate("test test one two three", "zh"), Toast.LENGTH_LONG).show();
     }
 
     //get date (used in API retrieval)
@@ -189,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public String translate(String inputText) {
+    public String translate(String inputText, String target) {
         //based on https://medium.com/@yeksancansu/how-to-use-google-translate-api-in-android-studio-projects-7f09cae320c7
 
         String translateResult = "";
@@ -206,8 +206,8 @@ public class MainActivity extends AppCompatActivity {
             TranslateOptions translateOptions = TranslateOptions.newBuilder().setCredentials(myCredentials).build();
             translate = translateOptions.getService();
 
-            Translate translation = (Translate) translate.translate(inputText, Translate.TranslateOption.targetLanguage("tr"), Translate.TranslateOption.model("base"));
-            translateResult = ((Translation) translation).getTranslatedText();
+            Translation translation = translate.translate(inputText, Translate.TranslateOption.targetLanguage(target), Translate.TranslateOption.model("base"));
+            translateResult = (translation).getTranslatedText();
 
         } catch (IOException ioe) {
             ioe.printStackTrace();

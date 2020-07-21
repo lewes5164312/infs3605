@@ -57,7 +57,6 @@ public class HomeFragment extends Fragment {
 
         notificationTV = view.findViewById(R.id.textViewNotifications);
 
-
         return view;
     }
 
