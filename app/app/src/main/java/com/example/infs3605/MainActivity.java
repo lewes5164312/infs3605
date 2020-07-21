@@ -1,11 +1,14 @@
 package com.example.infs3605;
 
+import android.app.Activity;
 import android.app.Notification;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,11 +21,17 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.auth.oauth2.GoogleCredentials;
+import com.google.cloud.translate.Translate;
+import com.google.cloud.translate.TranslateOptions;
+import com.google.cloud.translate.Translation;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -41,7 +50,9 @@ public class MainActivity extends AppCompatActivity {
     private static final HashMap<Integer, Article> articleList = new HashMap<>();
     private static final HashMap<Integer, Industry> industryList = new HashMap<>();
 
+    Translate translate;
 
+    private TextView notificationTV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         loadArticleData();
         loadIndustryData();
 
+       // Toast.makeText(getApplicationContext(), "test test one two three", Toast.LENGTH_LONG).show();
     }
 
     //get date (used in API retrieval)
@@ -175,5 +187,35 @@ public class MainActivity extends AppCompatActivity {
     public static Industry getIndustryById(int itemID) {
         return industryList.get(itemID);
     }
+
+
+    public String translate(String inputText) {
+        //based on https://medium.com/@yeksancansu/how-to-use-google-translate-api-in-android-studio-projects-7f09cae320c7
+
+        String translateResult = "";
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+        try (InputStream is = getResources().openRawResource(R.raw.credentials)) {
+
+            //Get credentials:
+            final GoogleCredentials myCredentials = GoogleCredentials.fromStream(is);
+
+            //Set credentials and get translate service:
+            TranslateOptions translateOptions = TranslateOptions.newBuilder().setCredentials(myCredentials).build();
+            translate = translateOptions.getService();
+
+            Translate translation = (Translate) translate.translate(inputText, Translate.TranslateOption.targetLanguage("tr"), Translate.TranslateOption.model("base"));
+            translateResult = ((Translation) translation).getTranslatedText();
+
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+
+        }
+
+        return translateResult;
+    }
+
 
 }
