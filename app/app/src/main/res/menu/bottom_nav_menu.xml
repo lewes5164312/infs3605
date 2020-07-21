@@ -2,16 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_home"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/home"
         android:title="Home" />
 
     <item
         android:id="@+id/nav_alerts"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/alerts"
         android:title="Alerts" />
 
     <item
         android:id="@+id/nav_settings"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/settings"
         android:title="Settings" />
 </menu>
