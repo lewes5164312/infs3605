@@ -24,62 +24,65 @@
         android:id="@+id/buttonChinese"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="123dp"
         android:layout_marginTop="16dp"
         android:onClick="chineseClick"
         android:text="中文"
-        app:layout_constraintTop_toBottomOf="@id/buttonEnglish"
-        tools:layout_editor_absoluteX="208dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonEnglish" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="76dp"
         android:layout_height="45dp"
-        android:layout_marginEnd="20dp"
-        app:srcCompat="@drawable/china"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toEndOf="@+id/buttonChinese"
         app:layout_constraintTop_toBottomOf="@id/buttonEnglish"
-        tools:layout_editor_absoluteY="201dp" />
+        app:srcCompat="@drawable/china" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="72dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toEndOf="@+id/buttonEnglish"
         app:layout_constraintTop_toBottomOf="@id/textViewLanguage"
-        app:srcCompat="@drawable/usa"
-        tools:layout_editor_absoluteY="137dp" />
+        app:srcCompat="@drawable/usa" />
 
     <Button
         android:id="@+id/buttonEnglish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginStart="123dp"
         android:layout_marginTop="16dp"
         android:onClick="englishClick"
         android:orientation="vertical"
         android:text="English"
-        app:layout_constraintTop_toBottomOf="@id/textViewLanguage"
-        tools:layout_editor_absoluteX="208dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewLanguage" />
 
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="73dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toEndOf="@+id/buttonEspanol"
         app:layout_constraintTop_toBottomOf="@id/buttonChinese"
-        app:srcCompat="@drawable/spain"
-        tools:layout_editor_absoluteY="257dp" />
+        app:srcCompat="@drawable/spain" />
 
     <Button
         android:id="@+id/buttonEspanol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="123dp"
         android:layout_marginTop="8dp"
         android:onClick="espanolClick"
         android:text="Español"
-        app:layout_constraintTop_toBottomOf="@id/buttonChinese"
-        tools:layout_editor_absoluteX="208dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonChinese" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
