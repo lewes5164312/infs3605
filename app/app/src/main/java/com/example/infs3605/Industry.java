@@ -9,8 +9,10 @@ public class Industry {
     private String entitlements;
     private String hygiene;
     private String records;
+    private String notificationTitle;
+    private String notificationText;
 
-    public Industry(Integer id, String name, String open, String limits, String distancing, String entitlements, String hygiene, String records) {
+    public Industry(Integer id, String name, String open, String limits, String distancing, String entitlements, String hygiene, String records, String notificationTitle, String notificationText) {
         this.id = id;
         this.name = name;
         this.open = open;
@@ -19,6 +21,8 @@ public class Industry {
         this.entitlements = entitlements;
         this.hygiene = hygiene;
         this.records = records;
+        this.notificationTitle = notificationTitle;
+        this.notificationText = notificationText;
     }
 
     public Integer getId() {
@@ -84,4 +88,21 @@ public class Industry {
     public void setRecords(String records) {
         this.records = records;
     }
+
+    public String getNotificationTitle() {
+        return notificationTitle;
+    }
+
+    public void setNotificationTitle(String notificationTitle) {
+        this.notificationTitle = notificationTitle;
+    }
+
+    public String getNotificationText() {
+        return notificationText;
+    }
+
+    public void setNotificationText(String notificationText) {
+        this.notificationText = notificationText;
+    }
+
 }

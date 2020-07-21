@@ -1,15 +1,21 @@
 package com.example.infs3605;
 
+import android.app.Notification;
 import android.app.ProgressDialog;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -29,9 +35,15 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+
+import static com.example.infs3605.Notifications.CHANNEL_1_ID;
+import static com.example.infs3605.Notifications.CHANNEL_2_ID;
 
 public class HomeActivity extends AppCompatActivity {
 
+    private NotificationManagerCompat notificationManager;
 
 
     @Override
@@ -45,7 +57,6 @@ public class HomeActivity extends AppCompatActivity {
         final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frag_slot, fragment);
         fragmentTransaction.commit();
-
 
         BottomNavigationView navMenu = findViewById(R.id.bottomNavBar);
 
@@ -69,7 +80,44 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        notificationManager = NotificationManagerCompat.from(this);
+
     }
+
+
+    public void sendOnChannel1 (View v){
+
+
+        SharedPreferences sp1=this.getSharedPreferences("Login",0);
+        String industry = sp1.getString("Industry", null);
+        int industryInt = Integer.parseInt(industry);
+
+        Industry latestIndustry = MainActivity.getIndustryById(industryInt);
+
+        Notification notification = new NotificationCompat.Builder(this, CHANNEL_1_ID)
+                .setSmallIcon(R.drawable.ic_check)
+                .setContentTitle (latestIndustry.getNotificationTitle())
+                .setContentText(latestIndustry.getNotificationText())
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .build();
+
+        notificationManager.notify (1, notification);
+    }
+
+ /*   public void sendOnChannel2 (View v){
+        Industry latestIndustry = MainActivity.getIndustryById(0);
+
+        Notification notification = new NotificationCompat.Builder(this, CHANNEL_2_ID)
+                .setSmallIcon(R.drawable.ic_check)
+                .setContentTitle (latestIndustry.getOpen())
+                .setContentText(latestIndustry.getLimits())
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .build();
+
+        notificationManager.notify (1, notification);
+    } */
 
     //Swapfragment method From NYT demo (INFS3634)
     private void swapFragment(Fragment fragment) {

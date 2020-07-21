@@ -30,21 +30,18 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-import static com.example.infs3605.Notifications.CHANNEL_1_ID;
-import static com.example.infs3605.Notifications.CHANNEL_2_ID;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String URL = "https://newsapi.org/v2/top-headlines?q=covid&country=au&from=" + getDate() + "&sortBypopularity&apiKey=8ef436de7eae4edda9e7bda8b6c41ef6";
 
-    private static final String industryURL = "https://api.jsonbin.io/b/5f0c16e85d4af74b012b85a3/1";
+    private static final String industryURL = "https://api.jsonbin.io/b/5f0c16e85d4af74b012b85a3/3";
 
     private static final HashMap<Integer, Article> articleList = new HashMap<>();
     private static final HashMap<Integer, Industry> industryList = new HashMap<>();
 
-    private NotificationManagerCompat notificationManager;
-    private EditText editTextTitle;
-    private EditText editTextMessage;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,39 +50,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         loadArticleData();
         loadIndustryData();
-        notificationManager = NotificationManagerCompat.from(this);
-        editTextTitle  = findViewById(R.id.edit_text_title);
-        editTextMessage = findViewById(R.id.edit_text_message);
-    }
 
-
-    public void sendOnChannel1 (View v){
-        String title = editTextTitle.getText().toString();
-        String message = editTextMessage.getText().toString();
-
-        Notification notification = new NotificationCompat.Builder(this, CHANNEL_1_ID)
-                .setSmallIcon(R.drawable.ic_check)
-                .setContentTitle (title)
-                .setContentText(message)
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
-                .build();
-
-        notificationManager.notify (1, notification);
-    }
-
-    public void sendOnChannel2 (View v){
-
-        String title = editTextTitle.getText().toString();
-        String message = editTextMessage.getText().toString();
-        Notification notification = new NotificationCompat.Builder(this, CHANNEL_2_ID)
-                .setSmallIcon(R.drawable.ic_baseline_check_24)
-                .setContentTitle (title)
-                .setContentText(message)
-                .setPriority(NotificationCompat.PRIORITY_LOW)
-                .build();
-
-        notificationManager.notify (2, notification);
     }
 
     //get date (used in API retrieval)
@@ -173,7 +138,9 @@ public class MainActivity extends AppCompatActivity {
                                         o.getString("Distancing"),
                                         o.getString("Entitlements"),
                                         o.getString("Hygiene"),
-                                        o.getString("Records")
+                                        o.getString("Records"),
+                                        o.getString("NotificationTitle"),
+                                        o.getString("NotificationText")
                                 ));
 
 

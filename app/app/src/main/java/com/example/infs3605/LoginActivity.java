@@ -46,7 +46,7 @@ private Button signupBTN;
         signupBTN = findViewById(R.id.signup);
         mAuth = FirebaseAuth.getInstance();
 
-        fakeloginBTN.setVisibility(View.INVISIBLE);
+        //fakeloginBTN.setVisibility(View.INVISIBLE);
 
         loginBTN.setOnClickListener(new View.OnClickListener() {
             @Override
