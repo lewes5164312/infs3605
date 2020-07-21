@@ -57,12 +57,22 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-        startActivity(intent);
-        loadArticleData();
-        loadIndustryData();
 
-       Toast.makeText(getApplicationContext(), translate("test test one two three", "zh"), Toast.LENGTH_LONG).show();
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.setMessage("Loading Data...");
+        progressDialog.show();
+
+        Bundle bundle = getIntent().getExtras();
+        String languageSelected = bundle.getString("languageClicked");
+        Intent intent2 = new Intent(getApplicationContext(), LoginActivity.class);
+        loadArticleData(languageSelected);
+        loadIndustryData(languageSelected);
+        startActivity(intent2);
+
+       Toast.makeText(getApplicationContext(), "Please be patientb, loading data!", Toast.LENGTH_LONG).show();
+        progressDialog.dismiss();
+
     }
 
     //get date (used in API retrieval)
@@ -74,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         return date;
     }
 
-    private void loadArticleData() {
+    private void loadArticleData(final String languageToTrans) {
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading Data...");
         progressDialog.show();
@@ -96,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                                 articleList.put(i, new Article(
                                         i,
                                         o.getString("author"),
-                                        o.getString("title"),
+                                        translate(o.getString("title"), languageToTrans),
                                         o.getString("description"),
                                         o.getString("url"),
                                         o.getString("urlToImage"),
@@ -123,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-    private void loadIndustryData() {
+    private void loadIndustryData(final String languageToTrans) {
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading Data...");
         progressDialog.show();
@@ -144,15 +154,15 @@ public class MainActivity extends AppCompatActivity {
 
                                 industryList.put(i, new Industry(
                                         i,
-                                        o.getString("Name"),
-                                        o.getString("Open"),
-                                        o.getString("Limits"),
+                                        translate(o.getString("Name"), languageToTrans),
+                                        translate(o.getString("Open"), languageToTrans),
+                                        translate(o.getString("Limits"), languageToTrans),
                                         o.getString("Distancing"),
                                         o.getString("Entitlements"),
                                         o.getString("Hygiene"),
                                         o.getString("Records"),
-                                        o.getString("NotificationTitle"),
-                                        o.getString("NotificationText")
+                                        translate(o.getString("NotificationTitle"), languageToTrans),
+                                        translate(o.getString("NotificationText"), languageToTrans)
                                 ));
 
 
@@ -192,30 +202,30 @@ public class MainActivity extends AppCompatActivity {
     public String translate(String inputText, String target) {
         //based on https://medium.com/@yeksancansu/how-to-use-google-translate-api-in-android-studio-projects-7f09cae320c7
 
-        String translateResult = "";
+            String translateResult = "";
 
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
 
-        try (InputStream is = getResources().openRawResource(R.raw.credentials)) {
+            try (InputStream is = getResources().openRawResource(R.raw.credentials)) {
 
-            //Get credentials:
-            final GoogleCredentials myCredentials = GoogleCredentials.fromStream(is);
+                //Get credentials:
+                final GoogleCredentials myCredentials = GoogleCredentials.fromStream(is);
 
-            //Set credentials and get translate service:
-            TranslateOptions translateOptions = TranslateOptions.newBuilder().setCredentials(myCredentials).build();
-            translate = translateOptions.getService();
+                //Set credentials and get translate service:
+                TranslateOptions translateOptions = TranslateOptions.newBuilder().setCredentials(myCredentials).build();
+                translate = translateOptions.getService();
 
-            Translation translation = translate.translate(inputText, Translate.TranslateOption.targetLanguage(target), Translate.TranslateOption.model("base"));
-            translateResult = (translation).getTranslatedText();
+                Translation translation = translate.translate(inputText, Translate.TranslateOption.targetLanguage(target), Translate.TranslateOption.model("base"));
+                translateResult = (translation).getTranslatedText();
 
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
 
-        }
+            }
 
-        return translateResult;
+            return translateResult;
+
     }
-
 
 }
