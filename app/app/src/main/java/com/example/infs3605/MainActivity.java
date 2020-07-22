@@ -65,12 +65,17 @@ public class MainActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         String languageSelected = bundle.getString("languageClicked");
-        Intent intent2 = new Intent(getApplicationContext(), LoginActivity.class);
-        loadArticleData(languageSelected);
-        loadIndustryData(languageSelected);
-        startActivity(intent2);
-
-       Toast.makeText(getApplicationContext(), "Please be patientb, loading data!", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(intent);
+        Toast.makeText(getApplicationContext(), "Please be patient, loading data!", Toast.LENGTH_LONG).show();
+        if (languageSelected == "en") {
+            loadArticleDataEng();
+            loadIndustryDataEng();
+        }
+        else {
+            loadArticleData(languageSelected);
+            loadIndustryData(languageSelected);
+        }
         progressDialog.dismiss();
 
     }
@@ -163,6 +168,106 @@ public class MainActivity extends AppCompatActivity {
                                         o.getString("Records"),
                                         translate(o.getString("NotificationTitle"), languageToTrans),
                                         translate(o.getString("NotificationText"), languageToTrans)
+                                ));
+
+
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        progressDialog.dismiss();
+                        Toast.makeText(getApplicationContext(), volleyError.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
+    private void loadArticleDataEng() {
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading Data...");
+        progressDialog.show();
+
+//retrieve articles from API
+        StringRequest stringRequest = new StringRequest(Request.Method.GET,
+                URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+                        progressDialog.dismiss();
+                        try {
+                            JSONObject jsonObject = new JSONObject(s);
+                            JSONArray array = jsonObject.getJSONArray("articles");
+
+                            for (int i = 0; i < array.length(); i++) {
+                                JSONObject o = array.getJSONObject(i);
+
+                                articleList.put(i, new Article(
+                                        i,
+                                        o.getString("author"),
+                                        o.getString("title"),
+                                        o.getString("description"),
+                                        o.getString("url"),
+                                        o.getString("urlToImage"),
+                                        o.getString("publishedAt"),
+                                        o.getString("content")
+                                ));
+
+
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        progressDialog.dismiss();
+                        Toast.makeText(getApplicationContext(), volleyError.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
+    private void loadIndustryDataEng() {
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading Data...");
+        progressDialog.show();
+
+//retrieve industries from API
+        StringRequest stringRequest = new StringRequest(Request.Method.GET,
+                industryURL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+                        progressDialog.dismiss();
+                        try {
+                            JSONObject jsonObject = new JSONObject(s);
+                            JSONArray array = jsonObject.getJSONArray("industry");
+
+                            for (int i = 0; i < array.length(); i++) {
+                                JSONObject o = array.getJSONObject(i);
+
+                                industryList.put(i, new Industry(
+                                        i,
+                                        o.getString("Name"),
+                                        o.getString("Open"),
+                                        o.getString("Limits"),
+                                        o.getString("Distancing"),
+                                        o.getString("Entitlements"),
+                                        o.getString("Hygiene"),
+                                        o.getString("Records"),
+                                        o.getString("NotificationTitle"),
+                                        o.getString("NotificationText")
                                 ));
 
 
