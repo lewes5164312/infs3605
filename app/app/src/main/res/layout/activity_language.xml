@@ -85,7 +85,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="      English"
+                android:text=" English"
                 android:textColor="@color/colorBlue"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -125,7 +125,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="     Chinese"
+                android:text=" Chinese"
                 android:textColor="@color/colorBlue"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -163,7 +163,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="      Korean"
+                android:text=" Korean"
                 android:textColor="@color/colorBlue"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -202,7 +202,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="  Japanese"
+                android:text=" Japanese"
                 android:textColor="@color/colorBlue"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -239,7 +239,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="        Spain"
+                android:text=" Spain"
                 android:textColor="@color/colorBlue"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -278,7 +278,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="     Russian"
+                android:text=" Russian"
                 android:textColor="@color/colorBlue"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -315,7 +315,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="       Indian"
+                android:text=" Indian"
                 android:textColor="@color/colorBlue"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -354,7 +354,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="       Arabic"
+                android:text=" Arabic"
                 android:textColor="@color/colorBlue"
                 android:textSize="18sp"
                 android:textStyle="bold" />
