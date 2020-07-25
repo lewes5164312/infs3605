@@ -32,4 +32,34 @@ public class LanguageActivity extends AppCompatActivity {
         intent.putExtra("languageClicked", "es");
         startActivity(intent);
     }
+
+    public void koreanClick(View v) {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.putExtra("languageClicked", "ko");
+        startActivity(intent);
+    }
+
+    public void japaneseClick(View v) {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.putExtra("languageClicked", "ja");
+        startActivity(intent);
+    }
+
+    public void russianClick(View v) {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.putExtra("languageClicked", "ru");
+        startActivity(intent);
+    }
+
+    public void indianClick(View v) {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.putExtra("languageClicked", "hi");
+        startActivity(intent);
+    }
+
+    public void arabicClick(View v) {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.putExtra("languageClicked", "ar");
+        startActivity(intent);
+    }
 }
