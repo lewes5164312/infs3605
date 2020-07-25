@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -73,6 +74,16 @@ private Button signupBTN;
         password = passwordET.getText().toString();
 
         Toast.makeText(getApplicationContext(), "Attempting to login...", Toast.LENGTH_LONG).show();
+
+        if (TextUtils.isEmpty(email)) {
+            Toast.makeText(getApplicationContext(), "Email is blank, please enter Email", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(password)) {
+            Toast.makeText(getApplicationContext(), "Password is blank, please enter Password", Toast.LENGTH_LONG).show();
+            return;
+        }
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
