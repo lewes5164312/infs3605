@@ -67,7 +67,12 @@ public class MainActivity extends AppCompatActivity {
         String languageSelected = bundle.getString("languageClicked");
         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(intent);
-        Toast.makeText(getApplicationContext(), "Please be patient, loading data!", Toast.LENGTH_LONG).show();
+
+
+        for (int i=0; i < 2; i++)
+        {
+            Toast.makeText(getApplicationContext(), "Loading Data: Please wait ~15secs", Toast.LENGTH_LONG).show();
+        }
         if (languageSelected == "en") {
             loadArticleDataEng();
             loadIndustryDataEng();

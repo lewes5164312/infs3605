@@ -92,7 +92,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         }
 
         if (TextUtils.isEmpty(name)) {
-            Toast.makeText(getApplicationContext(), "Name is blank, please enter Email", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Name is blank, please enter Name", Toast.LENGTH_LONG).show();
             return;
         }
 
