@@ -29,7 +29,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
 
     private EditText firstNameET;
     private EditText lastNameET;
-    private EditText abnET;
+    private EditText businessNameET;
     private EditText industryET;
     private EditText emailET;
     private EditText phoneET;
@@ -47,13 +47,13 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
 
         firstNameET = findViewById(R.id.firstname);
         lastNameET = findViewById(R.id.lastname);
-        abnET = findViewById(R.id.ABN);
+        businessNameET = findViewById(R.id.businessName);
         emailET = findViewById(R.id.email);
         phoneET = findViewById(R.id.number);
         passwordET = findViewById(R.id.password);
         passwordConfirmET = findViewById(R.id.passwordConfirm);
 
-        registerBTN = findViewById(R.id.register);
+        registerBTN = findViewById(R.id.registerbutton);
 
         registerBTN.setOnClickListener(new View.OnClickListener() {
             @Override

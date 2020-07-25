@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4d55fa"
+    android:background="@drawable/background_login"
     tools:context=".RegisterActivity">
 
     <androidx.constraintlayout.widget.Guideline
@@ -96,25 +96,26 @@
 
     <Spinner
         android:id="@+id/industry_spinner"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
         android:background="#4DFFFFFF"
+        android:backgroundTint="#FFFFFF"
         android:hint="Industry"
         android:padding="5dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/business"/>
+        app:layout_constraintTop_toBottomOf="@id/business" />
 
     <EditText
-        android:id="@+id/ABN"
+        android:id="@+id/businessName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
         android:background="#4DFFFFFF"
-        android:hint="ABN"
+        android:hint="Business Name"
         android:padding="5dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
@@ -136,7 +137,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/ABN" />
+        app:layout_constraintTop_toBottomOf="@id/businessName" />
 
     <EditText
         android:id="@+id/email"
@@ -199,12 +200,14 @@
         app:layout_constraintTop_toBottomOf="@id/password" />
 
     <Button
-        android:id="@+id/register"
+        android:id="@+id/registerbutton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Confirm"
         android:textAllCaps="true"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/button_background"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@+id/passwordConfirm" />

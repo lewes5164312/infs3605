@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4d55fa">
+    android:background="@drawable/background_login">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/c4"
@@ -89,11 +89,11 @@
         tools:ignore="MissingConstraints">
 
         <LinearLayout
+            android:id="@+id/covidLayout"
             android:layout_width="199dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:padding="16dp"
-            android:id="@+id/covidLayout">
+            android:padding="16dp">
 
             <ImageView
                 android:layout_width="80dp"
@@ -131,10 +131,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="3 notifications"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
-        app:layout_constraintTop_toBottomOf="@+id/dashboard"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintTop_toBottomOf="@+id/dashboard"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -200,11 +200,12 @@
         android:id="@+id/icon"
         android:layout_width="97dp"
         android:layout_height="111dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/ic_flattr"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="25dp" />
+        tools:ignore="MissingConstraints" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/c3"
