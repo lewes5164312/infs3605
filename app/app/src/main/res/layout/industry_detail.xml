@@ -6,49 +6,124 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFFFFF">
 
-    <TextView
-        android:id="@+id/industryName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Industry Name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        tools:ignore="MissingConstraints" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/industryOpen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Industry Open"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintTop_toBottomOf="@+id/industryName"
-        tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/industryOpenText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Industry Open Detail Text"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintTop_toBottomOf="@+id/industryOpen"
-        tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/industryName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Industry Name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/industryLimit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Industry Limit"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintTop_toBottomOf="@+id/industryOpenText"
-        tools:ignore="Limits,MissingConstraints" />
+            <TextView
+                android:id="@+id/industryOpen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Industry Open"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/industryLimitText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Industry Limit Detail Text"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintTop_toBottomOf="@+id/industryLimit"
-        tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/industryOpenText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Industry Open Detail Text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+            android:id="@+id/industryLimit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Industry Limit"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            tools:ignore="Limits,MissingConstraints" />
+
+            <TextView
+                android:id="@+id/industryLimitText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Industry Limit Detail Text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/industryDistancing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Industry Distancing"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                tools:ignore="Limits,MissingConstraints" />
+
+            <TextView
+                android:id="@+id/industryDistancingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Industry Distancing Detail Text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/industryHygiene"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Industry Hygiene"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                tools:ignore="Limits,MissingConstraints" />
+
+            <TextView
+                android:id="@+id/industryHygieneText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Industry Hygiene Detail Text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/industryWellbeing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Industry Wellbeing"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                tools:ignore="Limits,MissingConstraints" />
+
+            <TextView
+                android:id="@+id/industryWellbeingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Industry Wellbeing Detail Text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/industryGeneral"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Industry General"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                tools:ignore="Limits,MissingConstraints" />
+
+            <TextView
+                android:id="@+id/industryGeneralText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Industry General Detail Text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                tools:ignore="MissingConstraints" />
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

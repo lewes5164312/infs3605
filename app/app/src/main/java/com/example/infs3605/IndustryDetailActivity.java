@@ -11,6 +11,12 @@ public class IndustryDetailActivity extends AppCompatActivity {
     private TextView industryTV;
     private TextView industryOpenTV;
     private TextView industryLimitTV;
+    private TextView industryDistancingTV;
+    private TextView industryHygieneTV;
+    private TextView industryWellbeingTV;
+    private TextView industryGeneralTV;
+
+
 
 
     @Override
@@ -25,6 +31,11 @@ public class IndustryDetailActivity extends AppCompatActivity {
         industryTV = findViewById(R.id.industryName);
         industryOpenTV = findViewById(R.id.industryOpenText);
         industryLimitTV = findViewById(R.id.industryLimitText);
+        industryDistancingTV = findViewById(R.id.industryDistancingText);
+        industryHygieneTV = findViewById(R.id.industryHygieneText);
+        industryWellbeingTV = findViewById(R.id.industryWellbeingText);
+        industryGeneralTV = findViewById(R.id.industryGeneralText);
+
 
         //add data to textviews
 
@@ -32,6 +43,11 @@ public class IndustryDetailActivity extends AppCompatActivity {
         industryTV.setText(industrySelected.getName());
         industryOpenTV.setText(industrySelected.getOpen());
         industryLimitTV.setText(industrySelected.getLimits());
+        industryDistancingTV.setText(industrySelected.getDistancing());
+        industryHygieneTV.setText(industrySelected.getHygiene());
+        industryWellbeingTV.setText(industrySelected.getWellbeing());
+        industryGeneralTV.setText(MainActivity.getIndustryById(3).getGeneral());
+
 
 
     }

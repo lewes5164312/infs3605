@@ -10,7 +10,7 @@
         android:id="@+id/nameSetting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="First Name"
+        android:text="First Name + Last Name"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         android:textColor="#FFFFFF"
         tools:ignore="MissingConstraints" />
@@ -23,6 +23,36 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#FFFFFF"
         app:layout_constraintTop_toBottomOf="@+id/nameSetting"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/businessNameSetting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Business Name Detail"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@+id/industrySetting"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/emailSetting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email Detail"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@+id/businessNameSetting"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/phoneNumberSetting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone Number Detail"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@+id/emailSetting"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

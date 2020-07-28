@@ -23,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener  {
 
-    String[] registerIndustry = { "IndustryA", "IndustryB", "IndustryC", "IndustryD"};
+    String[] registerIndustry = { "Office Environment", "Retail and Grocery", "Construction & Tradespeople", "General"};
 
     int currentSelection = 0;
 
@@ -80,11 +80,17 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         String password;
         String passwordConfirm;
         final String name;
+        final String lastname;
+        final String businessName;
+        final String phoneNumber;
 
         email = emailET.getText().toString();
         password = passwordET.getText().toString();
         passwordConfirm = passwordConfirmET.getText().toString();
         name = firstNameET.getText().toString();
+        lastname = lastNameET.getText().toString();
+        businessName = businessNameET.getText().toString();
+        phoneNumber = phoneET.getText().toString();
 
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(), "Email is blank, please enter Email", Toast.LENGTH_LONG).show();
@@ -96,6 +102,21 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
             return;
         }
 
+
+        if (TextUtils.isEmpty(lastname)) {
+            Toast.makeText(getApplicationContext(), "Last Name is blank, please enter Last Name", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(businessName)) {
+            Toast.makeText(getApplicationContext(), "Business Name is blank, please enter Business Name", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(phoneNumber)) {
+            Toast.makeText(getApplicationContext(), "Phone Number is blank, please enter Phone Number", Toast.LENGTH_LONG).show();
+            return;
+        }
 
         if (TextUtils.isEmpty(password)) {
             Toast.makeText(getApplicationContext(), "Password is blank, please enter password", Toast.LENGTH_LONG).show();
@@ -124,6 +145,9 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                             String user_id=mAuth.getCurrentUser().getUid();
                             DatabaseReference current_user = mDatabase.child(user_id);
                             current_user.child("name").setValue(name);
+                            current_user.child("lastname").setValue(lastname);
+                            current_user.child("businessname").setValue(businessName);
+                            current_user.child("phonenumber").setValue(phoneNumber);
                             current_user.child("email").setValue(email);
                             current_user.child("industry").setValue(String.valueOf(currentSelection));
                             Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);

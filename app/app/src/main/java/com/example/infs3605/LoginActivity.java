@@ -95,17 +95,26 @@ private Button signupBTN;
 
                             mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
 
-//add name from firebase DB to shared preferences
+//add details from firebase DB to shared preferences
 //reference https://stackoverflow.com/questions/47621936/how-can-i-get-the-child-values-from-firebase-database
                             DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
                             DatabaseReference userRef = rootRef.child("Users").child(user_id);
                             ValueEventListener eventListener = new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
-                                    String name = dataSnapshot.child("name").getValue(String.class);
+
                                     SharedPreferences sp = getSharedPreferences("Login", 0);
                                     SharedPreferences.Editor ed = sp.edit();
+                                    String name = dataSnapshot.child("name").getValue(String.class);
                                     ed.putString("Name",name);
+                                    String lastname = dataSnapshot.child("lastname").getValue(String.class);
+                                    ed.putString("LastName",lastname);
+                                    String email = dataSnapshot.child("email").getValue(String.class);
+                                    ed.putString("Email",email);
+                                    String businessName = dataSnapshot.child("businessname").getValue(String.class);
+                                    ed.putString("BusinessName",businessName);
+                                    String phoneNumber= dataSnapshot.child("phonenumber").getValue(String.class);
+                                    ed.putString("PhoneNumber",phoneNumber);
                                     String industry = dataSnapshot.child("industry").getValue(String.class);
                                     ed.putString("Industry",industry);
                                     ed.commit();

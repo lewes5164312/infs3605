@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String URL = "https://newsapi.org/v2/top-headlines?q=covid&country=au&from=" + getDate() + "&sortBypopularity&apiKey=8ef436de7eae4edda9e7bda8b6c41ef6";
 
-    private static final String industryURL = "https://api.jsonbin.io/b/5f0c16e85d4af74b012b85a3/5";
+    private static final String industryURL = "https://api.jsonbin.io/b/5f0c16e85d4af74b012b85a3/6";
 
     private static final HashMap<Integer, Article> articleList = new HashMap<>();
     private static final HashMap<Integer, Industry> industryList = new HashMap<>();
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(intent);
 
-        final ProgressDialog dialog= ProgressDialog.show(this,"Doing something", "Please wait....",true);
+        /*final ProgressDialog dialog= ProgressDialog.show(this,"Doing something", "Please wait....",true);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -83,8 +83,16 @@ public class MainActivity extends AppCompatActivity {
                     ex.printStackTrace();
                 }
             }
-        }).start();
+        }).start(); */
 
+        if (languageSelected == "en") {
+            loadArticleDataEng();
+            loadIndustryDataEng();
+        }
+        else {
+            loadArticleData(languageSelected);
+            loadIndustryData(languageSelected);
+        }
 
             Toast.makeText(getApplicationContext(), "Loading Data: Please wait ~15secs", Toast.LENGTH_LONG).show();
 
