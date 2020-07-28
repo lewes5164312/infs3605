@@ -55,4 +55,27 @@
         app:layout_constraintTop_toBottomOf="@+id/emailSetting"
         tools:ignore="MissingConstraints" />
 
+
+    <Spinner
+        android:id="@+id/setting_industry_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:background="#4DFFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:hint="Industry"
+        android:padding="5dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberSetting"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="edit settings"
+        android:onClick="editSettingClick"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberSetting"
+        tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.infs3605;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 
 public class SettingsFragment extends Fragment {
 
@@ -17,6 +20,7 @@ public class SettingsFragment extends Fragment {
     private TextView businessNameTV;
     private TextView emailTV;
     private TextView phoneNumberTV;
+    private FirebaseAuth mAuth;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,6 +52,5 @@ public class SettingsFragment extends Fragment {
 
         return view;
     }
-
 
 }

@@ -23,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener  {
 
-    String[] registerIndustry = { "Office Environment", "Retail and Grocery", "Construction & Tradespeople", "General"};
+    String[] registerIndustry = {"Choose Industry", "Office Environment", "Retail and Grocery", "Construction & Tradespeople", "General"};
 
     int currentSelection = 0;
 
@@ -134,6 +134,11 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
             return;
         }
 
+        if (currentSelection==0) {
+            Toast.makeText(getApplicationContext(), "Please Select Industry!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         Toast.makeText(getApplicationContext(), "Attempting to create user...", Toast.LENGTH_LONG).show();
 
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -149,7 +154,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                             current_user.child("businessname").setValue(businessName);
                             current_user.child("phonenumber").setValue(phoneNumber);
                             current_user.child("email").setValue(email);
-                            current_user.child("industry").setValue(String.valueOf(currentSelection));
+                            current_user.child("industry").setValue(String.valueOf(currentSelection-1));
                             Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                             startActivity(intent);
                         }

@@ -2,6 +2,7 @@ package com.example.infs3605;
 
 import android.app.Notification;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -127,6 +128,10 @@ public class HomeActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
-
+    //edit settings
+    public void editSettingClick(View v) {
+        Intent intent = new Intent(this, EditSettingsActivity.class);
+        startActivity(intent);
+    }
 
 }
