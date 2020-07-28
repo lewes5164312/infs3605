@@ -58,30 +58,36 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        progressDialog.setMessage("Loading Data...");
-        progressDialog.show();
-
         Bundle bundle = getIntent().getExtras();
-        String languageSelected = bundle.getString("languageClicked");
+        final String languageSelected = bundle.getString("languageClicked");
         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(intent);
 
+        final ProgressDialog dialog= ProgressDialog.show(this,"Doing something", "Please wait....",true);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    if (languageSelected == "en") {
+                        loadArticleDataEng();
+                        loadIndustryDataEng();
+                        dialog.dismiss();
+                    }
+                    else {
+                        loadArticleData(languageSelected);
+                        loadIndustryData(languageSelected);
+                        dialog.dismiss();
+                    }
+                      }
+                catch(Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+        }).start();
 
-        for (int i=0; i < 2; i++)
-        {
+
             Toast.makeText(getApplicationContext(), "Loading Data: Please wait ~15secs", Toast.LENGTH_LONG).show();
-        }
-        if (languageSelected == "en") {
-            loadArticleDataEng();
-            loadIndustryDataEng();
-        }
-        else {
-            loadArticleData(languageSelected);
-            loadIndustryData(languageSelected);
-        }
-        progressDialog.dismiss();
+
 
     }
 
@@ -95,9 +101,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadArticleData(final String languageToTrans) {
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Loading Data...");
-        progressDialog.show();
 
 //retrieve articles from API
         StringRequest stringRequest = new StringRequest(Request.Method.GET,
@@ -105,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
-                        progressDialog.dismiss();
                         try {
                             JSONObject jsonObject = new JSONObject(s);
                             JSONArray array = jsonObject.getJSONArray("articles");
@@ -134,7 +136,6 @@ public class MainActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                        progressDialog.dismiss();
                         Toast.makeText(getApplicationContext(), volleyError.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
@@ -144,9 +145,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadIndustryData(final String languageToTrans) {
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Loading Data...");
-        progressDialog.show();
 
 //retrieve industries from API
         StringRequest stringRequest = new StringRequest(Request.Method.GET,
@@ -154,7 +152,6 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
-                        progressDialog.dismiss();
                         try {
                             JSONObject jsonObject = new JSONObject(s);
                             JSONArray array = jsonObject.getJSONArray("industry");
@@ -185,7 +182,6 @@ public class MainActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                        progressDialog.dismiss();
                         Toast.makeText(getApplicationContext(), volleyError.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
@@ -195,9 +191,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadArticleDataEng() {
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Loading Data...");
-        progressDialog.show();
 
 //retrieve articles from API
         StringRequest stringRequest = new StringRequest(Request.Method.GET,
@@ -205,7 +198,6 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
-                        progressDialog.dismiss();
                         try {
                             JSONObject jsonObject = new JSONObject(s);
                             JSONArray array = jsonObject.getJSONArray("articles");
@@ -234,7 +226,6 @@ public class MainActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                        progressDialog.dismiss();
                         Toast.makeText(getApplicationContext(), volleyError.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
@@ -244,9 +235,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadIndustryDataEng() {
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Loading Data...");
-        progressDialog.show();
 
 //retrieve industries from API
         StringRequest stringRequest = new StringRequest(Request.Method.GET,
@@ -254,7 +242,6 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
-                        progressDialog.dismiss();
                         try {
                             JSONObject jsonObject = new JSONObject(s);
                             JSONArray array = jsonObject.getJSONArray("industry");
@@ -287,7 +274,6 @@ public class MainActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                        progressDialog.dismiss();
                         Toast.makeText(getApplicationContext(), volleyError.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
