@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }).start(); */
 
-        if (languageSelected == "en") {
+        if (languageSelected.equals("en")){
             loadArticleDataEng();
             loadIndustryDataEng();
         }
