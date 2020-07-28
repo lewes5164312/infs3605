@@ -6,23 +6,27 @@ public class Industry {
     private String open;
     private String limits;
     private String distancing;
-    private String entitlements;
     private String hygiene;
-    private String records;
-    private String notificationTitle;
-    private String notificationText;
+    private String wellbeing;
+    private String general;
+    private String notification1Title;
+    private String notification1Text;
+    private String notification2Title;
+    private String notification2Text;
 
-    public Industry(Integer id, String name, String open, String limits, String distancing, String entitlements, String hygiene, String records, String notificationTitle, String notificationText) {
+    public Industry(Integer id, String name, String open, String limits, String distancing, String hygiene, String wellbeing, String general, String notification1Title, String notification1Text, String notification2Title, String notification2Text) {
         this.id = id;
         this.name = name;
         this.open = open;
         this.limits = limits;
         this.distancing = distancing;
-        this.entitlements = entitlements;
         this.hygiene = hygiene;
-        this.records = records;
-        this.notificationTitle = notificationTitle;
-        this.notificationText = notificationText;
+        this.wellbeing = wellbeing;
+        this.general = general;
+        this.notification1Title = notification1Title;
+        this.notification1Text = notification1Text;
+        this.notification2Title = notification2Title;
+        this.notification2Text = notification2Text;
     }
 
     public Integer getId() {
@@ -65,14 +69,6 @@ public class Industry {
         this.distancing = distancing;
     }
 
-    public String getEntitlements() {
-        return entitlements;
-    }
-
-    public void setEntitlements(String entitlements) {
-        this.entitlements = entitlements;
-    }
-
     public String getHygiene() {
         return hygiene;
     }
@@ -81,28 +77,51 @@ public class Industry {
         this.hygiene = hygiene;
     }
 
-    public String getRecords() {
-        return records;
+    public String getWellbeing() {
+        return wellbeing;
     }
 
-    public void setRecords(String records) {
-        this.records = records;
+    public void setWellbeing(String wellbeing) {
+        this.wellbeing = wellbeing;
     }
 
-    public String getNotificationTitle() {
-        return notificationTitle;
+    public String getGeneral() {
+        return general;
     }
 
-    public void setNotificationTitle(String notificationTitle) {
-        this.notificationTitle = notificationTitle;
+    public void setGeneral(String general) {
+        this.general = general;
     }
 
-    public String getNotificationText() {
-        return notificationText;
+    public String getNotification1Title() {
+        return notification1Title;
     }
 
-    public void setNotificationText(String notificationText) {
-        this.notificationText = notificationText;
+    public void setNotification1Title(String notification1Title) {
+        this.notification1Title = notification1Title;
     }
 
+    public String getNotification1Text() {
+        return notification1Text;
+    }
+
+    public void setNotification1Text(String notification1Text) {
+        this.notification1Text = notification1Text;
+    }
+
+    public String getNotification2Title() {
+        return notification2Title;
+    }
+
+    public void setNotification2Title(String notification2Title) {
+        this.notification2Title = notification2Title;
+    }
+
+    public String getNotification2Text() {
+        return notification2Text;
+    }
+
+    public void setNotification2Text(String notification2Text) {
+        this.notification2Text = notification2Text;
+    }
 }

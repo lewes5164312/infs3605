@@ -126,7 +126,6 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                             current_user.child("name").setValue(name);
                             current_user.child("email").setValue(email);
                             current_user.child("industry").setValue(String.valueOf(currentSelection));
-
                             Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                             startActivity(intent);
                         }

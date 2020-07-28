@@ -96,8 +96,8 @@ public class HomeActivity extends AppCompatActivity {
 
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_1_ID)
                 .setSmallIcon(R.drawable.ic_check)
-                .setContentTitle (latestIndustry.getNotificationTitle())
-                .setContentText(latestIndustry.getNotificationText())
+                .setContentTitle (latestIndustry.getNotification1Title())
+                .setContentText(latestIndustry.getNotification1Text())
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                 .build();

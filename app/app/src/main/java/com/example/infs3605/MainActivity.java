@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String URL = "https://newsapi.org/v2/top-headlines?q=covid&country=au&from=" + getDate() + "&sortBypopularity&apiKey=8ef436de7eae4edda9e7bda8b6c41ef6";
 
-    private static final String industryURL = "https://api.jsonbin.io/b/5f0c16e85d4af74b012b85a3/3";
+    private static final String industryURL = "https://api.jsonbin.io/b/5f0c16e85d4af74b012b85a3/5";
 
     private static final HashMap<Integer, Article> articleList = new HashMap<>();
     private static final HashMap<Integer, Industry> industryList = new HashMap<>();
@@ -164,18 +164,18 @@ public class MainActivity extends AppCompatActivity {
 
                                 industryList.put(i, new Industry(
                                         i,
-                                        translate(o.getString("Name"), languageToTrans),
-                                        translate(o.getString("Open"), languageToTrans),
-                                        translate(o.getString("Limits"), languageToTrans),
-                                        o.getString("Distancing"),
-                                        o.getString("Entitlements"),
-                                        o.getString("Hygiene"),
-                                        o.getString("Records"),
-                                        translate(o.getString("NotificationTitle"), languageToTrans),
-                                        translate(o.getString("NotificationText"), languageToTrans)
+                                        translate(o.getString("name"), languageToTrans),
+                                        translate(o.getString("open"), languageToTrans),
+                                        translate(o.getString("limits"), languageToTrans),
+                                        translate(o.getString("distancing"), languageToTrans),
+                                        translate(o.getString("hygiene"), languageToTrans),
+                                        translate(o.getString("wellbeing"), languageToTrans),
+                                        translate(o.getString("general"), languageToTrans),
+                                        translate(o.getString("notification1Title"), languageToTrans),
+                                        translate(o.getString("notification1Text"), languageToTrans),
+                                        translate(o.getString("notification2Title"), languageToTrans),
+                                        translate(o.getString("notification2Text"), languageToTrans)
                                 ));
-
-
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -264,15 +264,17 @@ public class MainActivity extends AppCompatActivity {
 
                                 industryList.put(i, new Industry(
                                         i,
-                                        o.getString("Name"),
-                                        o.getString("Open"),
-                                        o.getString("Limits"),
-                                        o.getString("Distancing"),
-                                        o.getString("Entitlements"),
-                                        o.getString("Hygiene"),
-                                        o.getString("Records"),
-                                        o.getString("NotificationTitle"),
-                                        o.getString("NotificationText")
+                                        o.getString("name"),
+                                        o.getString("open"),
+                                        o.getString("limits"),
+                                        o.getString("distancing"),
+                                        o.getString("hygiene"),
+                                        o.getString("wellbeing"),
+                                        o.getString("general"),
+                                        o.getString("notification1Title"),
+                                        o.getString("notification1Text"),
+                                        o.getString("notification2Title"),
+                                        o.getString("notification2Text")
                                 ));
 
 
