@@ -14,6 +14,17 @@
         android:onClick="sendOnChannel1"
         android:text="Get Latest Alert" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="getLatestUpdate"
+        android:text="Get NSW cases - Latest" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="get7DaysAgoUpdate"
+        android:text="Get NSW cases - 7 Days Ago" />
+
     <Switch
         android:id="@+id/alertswitch"
         android:layout_width="match_parent"
