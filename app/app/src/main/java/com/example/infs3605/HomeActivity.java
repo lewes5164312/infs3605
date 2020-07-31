@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -53,6 +54,11 @@ public class HomeActivity extends AppCompatActivity {
 
     private static final String caseURL =
             "https://interactive.guim.co.uk/docsdata/1q5gdePANXci8enuiS4oHUJxcxC13d6bjMRSicakychE.json?fbclid=IwAR0Zpu2s_UDMGyWuwmeSLRnv3t366Cg_ivAh_PzXdJ1tXZd1sGDQxPHqeYc";
+
+    int latestcount=0;
+    int previouscount=0;
+
+    TextView growthTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,14 +134,20 @@ public class HomeActivity extends AppCompatActivity {
 
     public static String getDateDaysAgo(int Days) {
         SimpleDateFormat sdfDate = new SimpleDateFormat("dd/MM/yyyy");
-        //from https://stackoverflow.com/questions/6439946/java-date-problems-finding-the-date-x-days-ago
+        //based on https://stackoverflow.com/questions/6439946/java-date-problems-finding-the-date-x-days-ago
         Date xDaysAgo = Date.from( Instant.now().minus( Duration.ofDays( Days ) ) );
         String date = sdfDate.format(xDaysAgo);
         return date;
     }
 
     public void getLatestUpdate (View v){
-//currently set to two days ago to guarantee a record exists - in future may implement validation
+        SharedPreferences sp1=this.getSharedPreferences("Login",0);
+        if (sp1.getBoolean("NotificationSetting", true) == false) {
+            return;
+        }
+//currently set to subtract cumulative cases from 3 days ago from 2 days ago to get the latest cases
+//this ensures that the data exist however may not be the latest update
+//in the future can consider validation
         StringRequest stringRequest = new StringRequest(Request.Method.GET,
                 caseURL,
                 new Response.Listener<String>() {
@@ -150,10 +162,41 @@ public class HomeActivity extends AppCompatActivity {
                                 JSONObject o = array.getJSONObject(i);
                                 if  ((o.getString("State").equals("NSW")) && (o.getString("Date").equals(getDateDaysAgo(2))))
                                 {
+                                    latestcount = Integer.parseInt(o.getString("Cumulative case count"));
+                                }
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        Toast.makeText(getApplicationContext(), volleyError.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
+
+        StringRequest stringRequest2 = new StringRequest(Request.Method.GET,
+                caseURL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(s);
+                            JSONObject jsonObject1 = jsonObject.getJSONObject("sheets");
+                            JSONArray array = jsonObject1.getJSONArray("updates");
+
+                            for (int i = 0; i < array.length(); i++) {
+                                JSONObject o = array.getJSONObject(i);
+                                if  ((o.getString("State").equals("NSW")) && (o.getString("Date").equals(getDateDaysAgo(3))))
+                                {
+                                    previouscount = Integer.parseInt(o.getString("Cumulative case count"));
 
                                     Notification notification = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_1_ID)
                                             .setSmallIcon(R.drawable.ic_check)
-                                            .setContentTitle ("NSW Cumulative Cases: " + o.getString("Cumulative case count"))
+                                            .setContentTitle ("NSW records " + (latestcount - previouscount) + " new cases")
                                             .setContentText("On Date " + getDateDaysAgo(2))
                                             .setPriority(NotificationCompat.PRIORITY_HIGH)
                                             .setCategory(NotificationCompat.CATEGORY_MESSAGE)
@@ -177,57 +220,10 @@ public class HomeActivity extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
-
-
-
-    }
-
-    public void get7DaysAgoUpdate (View v){
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET,
-                caseURL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String s) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(s);
-                            JSONObject jsonObject1 = jsonObject.getJSONObject("sheets");
-                            JSONArray array = jsonObject1.getJSONArray("updates");
-
-                            for (int i = 0; i < array.length(); i++) {
-                                JSONObject o = array.getJSONObject(i);
-                                if  ((o.getString("State").equals("NSW")) && (o.getString("Date").equals(getDateDaysAgo(7))))
-                                {
-                                    Notification notification = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_1_ID)
-                                            .setSmallIcon(R.drawable.ic_check)
-                                            .setContentTitle ("NSW Cumulative Cases: " + o.getString("Cumulative case count"))
-                                            .setContentText("On Date " + getDateDaysAgo(7))
-                                            .setPriority(NotificationCompat.PRIORITY_HIGH)
-                                            .setCategory(NotificationCompat.CATEGORY_MESSAGE)
-                                            .build();
-
-                                    notificationManager.notify (1, notification);
-                                }
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError volleyError) {
-                        Toast.makeText(getApplicationContext(), volleyError.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                });
-
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-
-
+        requestQueue.add(stringRequest2);
 
     }
+
 
     //Swapfragment method From NYT demo (INFS3634)
     private void swapFragment(Fragment fragment) {

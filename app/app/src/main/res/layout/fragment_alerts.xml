@@ -18,12 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="getLatestUpdate"
-        android:text="Get NSW cases - Latest" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="get7DaysAgoUpdate"
-        android:text="Get NSW cases - 7 Days Ago" />
+        android:text="Get latest NSW Daily Cases" />
 
     <Switch
         android:id="@+id/alertswitch"
