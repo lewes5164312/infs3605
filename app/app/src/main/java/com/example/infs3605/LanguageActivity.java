@@ -15,6 +15,8 @@ public class LanguageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_language);
     }
 
+    //button onClick methods with intents
+
     public void englishClick(View v) {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         intent.putExtra("languageClicked", "en");

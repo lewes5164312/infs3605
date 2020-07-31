@@ -18,6 +18,8 @@ public static final String CHANNEL_1_ID = "channel1";
 
         createNotificationChannels();
     }
+
+    //create two notification channels (currnetly only one used)
     private void createNotificationChannels() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel1 = new NotificationChannel(

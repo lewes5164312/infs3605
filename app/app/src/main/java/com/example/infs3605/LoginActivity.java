@@ -47,6 +47,7 @@ private Button signupBTN;
         signupBTN = findViewById(R.id.signup);
         mAuth = FirebaseAuth.getInstance();
 
+        //a login bypass button was used to make developing easy
         //fakeloginBTN.setVisibility(View.INVISIBLE);
 
         loginBTN.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +76,7 @@ private Button signupBTN;
 
         Toast.makeText(getApplicationContext(), "Attempting to login...", Toast.LENGTH_LONG).show();
 
+        //validation to ensure entered in
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(), "Email is blank, please enter Email", Toast.LENGTH_LONG).show();
             return;

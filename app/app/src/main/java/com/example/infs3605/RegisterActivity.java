@@ -92,6 +92,8 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         businessName = businessNameET.getText().toString();
         phoneNumber = phoneET.getText().toString();
 
+
+        //valiation to check everything is entered in
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(), "Email is blank, please enter Email", Toast.LENGTH_LONG).show();
             return;
@@ -141,6 +143,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
 
         Toast.makeText(getApplicationContext(), "Attempting to create user...", Toast.LENGTH_LONG).show();
 
+        //creates user and also adds to the realtime database
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -163,8 +166,6 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                         }
                     }
                 });
-
-       // writeNewUserToDB(email,password);
 
     }
 

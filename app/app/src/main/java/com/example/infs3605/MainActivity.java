@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Notification;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
@@ -43,8 +44,10 @@ import java.util.List;
 //test
 public class MainActivity extends AppCompatActivity {
 
+    //newsAPI
     private static final String URL = "https://newsapi.org/v2/top-headlines?q=covid&country=au&from=" + getDate() + "&sortBypopularity&apiKey=8ef436de7eae4edda9e7bda8b6c41ef6";
 
+    //industryAPI
     private static final String industryURL = "https://api.jsonbin.io/b/5f0c16e85d4af74b012b85a3/6";
 
     private static final HashMap<Integer, Article> articleList = new HashMap<>();
@@ -52,11 +55,13 @@ public class MainActivity extends AppCompatActivity {
 
     Translate translate;
 
-    private TextView notificationTV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        //passes in the language selected in the past activity
 
         Bundle bundle = getIntent().getExtras();
         final String languageSelected = bundle.getString("languageClicked");
@@ -85,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }).start(); */
 
+
+        //if statement to only translate if not enlish
         if (languageSelected.equals("en")){
             loadArticleDataEng();
             loadIndustryDataEng();
@@ -92,14 +99,13 @@ public class MainActivity extends AppCompatActivity {
         else {
             loadArticleData(languageSelected);
             loadIndustryData(languageSelected);
+            Toast.makeText(getApplicationContext(), "Translating: Please wait ~1 min", Toast.LENGTH_LONG).show();
         }
-
-            Toast.makeText(getApplicationContext(), "Loading Data: Please wait ~15secs", Toast.LENGTH_LONG).show();
 
 
     }
 
-    //get date (used in API retrieval)
+    //get date (used in API URL retrieval) for the current date
 
     public static String getDate() {
         SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd");
@@ -200,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadArticleDataEng() {
 
-//retrieve articles from API
+//retrieve articles from API without translation
         StringRequest stringRequest = new StringRequest(Request.Method.GET,
                 URL,
                 new Response.Listener<String>() {
@@ -244,7 +250,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadIndustryDataEng() {
 
-//retrieve industries from API
+//retrieve industries from API without translation
         StringRequest stringRequest = new StringRequest(Request.Method.GET,
                 industryURL,
                 new Response.Listener<String>() {
@@ -307,7 +313,7 @@ public class MainActivity extends AppCompatActivity {
 
     public String translate(String inputText, String target) {
         //based on https://medium.com/@yeksancansu/how-to-use-google-translate-api-in-android-studio-projects-7f09cae320c7
-
+        //takes in a String and also a target language, and then returns the string of the target language
             String translateResult = "";
 
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();

@@ -86,10 +86,16 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
+    //send notification for the latest update for the industry
+    //ONLY if sharedprefernce controlled by the switch is on
+
     public void sendOnChannel1 (View v){
 
-
         SharedPreferences sp1=this.getSharedPreferences("Login",0);
+        if (sp1.getBoolean("NotificationSetting", true) == false) {
+            return;
+        }
+
         String industry = sp1.getString("Industry", null);
         int industryInt = Integer.parseInt(industry);
 
@@ -132,6 +138,16 @@ public class HomeActivity extends AppCompatActivity {
     public void editSettingClick(View v) {
         Intent intent = new Intent(this, EditSettingsActivity.class);
         startActivity(intent);
+    }
+
+    //when user clicks on notifications in home fragment -> swap to alerts fragment
+    public void notificationTextClick (View v) {
+        AlertsFragment fragment = new AlertsFragment();
+        final FragmentManager fragmentManager = getSupportFragmentManager();
+        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frag_slot, fragment);
+        fragmentTransaction.commit();
+
     }
 
 }

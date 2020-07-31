@@ -26,6 +26,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_home, container, false);
 
+        //news article adapter/recycler views
         recyclerView = view.findViewById(R.id.rv_articles);
         layoutManager = new LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -39,11 +40,8 @@ public class HomeFragment extends Fragment {
 
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        SharedPreferences sp1=this.getActivity().getSharedPreferences("Login",0);
-        String name =sp1.getString("Name", null);
-        String industry = sp1.getString("Industry", null);
 
-
+        //onclicklistener for covid-19 industry information
         covidView = view.findViewById(R.id.covidLayout);
 
         covidView.setOnClickListener(new View.OnClickListener() {

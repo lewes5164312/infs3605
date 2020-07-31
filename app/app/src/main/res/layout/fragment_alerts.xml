@@ -13,4 +13,11 @@
         android:layout_height="wrap_content"
         android:onClick="sendOnChannel1"
         android:text="Get Latest Alert" />
+
+    <Switch
+        android:id="@+id/alertswitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Receive Alerts"
+        android:textColor="#FFFFFF" />
 </LinearLayout>
