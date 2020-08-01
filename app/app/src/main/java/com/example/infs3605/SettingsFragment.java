@@ -27,9 +27,9 @@ public class SettingsFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_settings, container, false);
+        View view = inflater.inflate(R.layout.fragment_settings, container, false);
 
-        SharedPreferences sp1=this.getActivity().getSharedPreferences("Login",0);
+        SharedPreferences sp1 = this.getActivity().getSharedPreferences("Login", 0);
         String industry = sp1.getString("Industry", null);
         String name = sp1.getString("Name", null) + " " + sp1.getString("LastName", null);
         String businessName = sp1.getString("BusinessName", null);
@@ -51,7 +51,6 @@ public class SettingsFragment extends Fragment {
         businessNameTV.setText(businessName);
         emailTV.setText(email);
         phoneNumberTV.setText(phoneNumber);
-
 
 
         return view;

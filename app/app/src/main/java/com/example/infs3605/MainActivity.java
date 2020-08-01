@@ -92,11 +92,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         //if statement to only translate if not enlish
-        if (languageSelected.equals("en")){
+        if (languageSelected.equals("en")) {
             loadArticleDataEng();
             loadIndustryDataEng();
-        }
-        else {
+        } else {
             loadArticleData(languageSelected);
             loadIndustryData(languageSelected);
             Toast.makeText(getApplicationContext(), "Translating: Please wait ~1 min", Toast.LENGTH_LONG).show();
@@ -297,7 +296,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     public static ArrayList<Article> getAllArticles() {
         return new ArrayList<Article>((List) Arrays.asList(articleList.values().toArray()));
     }
@@ -314,29 +312,29 @@ public class MainActivity extends AppCompatActivity {
     public String translate(String inputText, String target) {
         //based on https://medium.com/@yeksancansu/how-to-use-google-translate-api-in-android-studio-projects-7f09cae320c7
         //takes in a String and also a target language, and then returns the string of the target language
-            String translateResult = "";
+        String translateResult = "";
 
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
 
-            try (InputStream is = getResources().openRawResource(R.raw.credentials)) {
+        try (InputStream is = getResources().openRawResource(R.raw.credentials)) {
 
-                //Get credentials:
-                final GoogleCredentials myCredentials = GoogleCredentials.fromStream(is);
+            //Get credentials:
+            final GoogleCredentials myCredentials = GoogleCredentials.fromStream(is);
 
-                //Set credentials and get translate service:
-                TranslateOptions translateOptions = TranslateOptions.newBuilder().setCredentials(myCredentials).build();
-                translate = translateOptions.getService();
+            //Set credentials and get translate service:
+            TranslateOptions translateOptions = TranslateOptions.newBuilder().setCredentials(myCredentials).build();
+            translate = translateOptions.getService();
 
-                Translation translation = translate.translate(inputText, Translate.TranslateOption.targetLanguage(target), Translate.TranslateOption.model("base"));
-                translateResult = (translation).getTranslatedText();
+            Translation translation = translate.translate(inputText, Translate.TranslateOption.targetLanguage(target), Translate.TranslateOption.model("base"));
+            translateResult = (translation).getTranslatedText();
 
-            } catch (IOException ioe) {
-                ioe.printStackTrace();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
 
-            }
+        }
 
-            return translateResult;
+        return translateResult;
 
     }
 

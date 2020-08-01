@@ -35,54 +35,54 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Alerts"
         android:gravity="center"
+        android:hint="Alerts"
+        android:padding="12dp"
+        android:textColorHint="@color/colorLogin"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColorHint="@color/colorLogin"
-        android:padding="12dp"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/icon"/>
+        app:layout_constraintTop_toBottomOf="@id/icon" />
 
     <Switch
         android:id="@+id/alertswitch"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Receive Alerts"
-        android:textColor="#FFFFFF"
         android:layout_marginTop="5dp"
         android:padding="13dp"
+        android:text="Receive Alerts"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/alerts"/>
+        app:layout_constraintTop_toBottomOf="@+id/alerts" />
 
     <Button
         android:id="@+id/latestalerts"
         android:layout_width="0dp"
-        android:layout_marginTop="15dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:background="@color/colorWhite"
         android:onClick="sendOnChannel1"
         android:text="Get Latest Alert"
         android:textAllCaps="true"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        tools:layout_editor_absoluteY="295dp"
-        app:layout_constraintTop_toBottomOf="@+id/alertswitch"/>
+        app:layout_constraintTop_toBottomOf="@+id/alertswitch"
+        tools:layout_editor_absoluteY="295dp" />
 
     <Button
         android:id="@+id/latestdailycases"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="Get Latest Daily Cases"
-        android:onClick="getLatestUpdate"
-        android:textAllCaps="true"
         android:background="@color/colorWhite"
+        android:onClick="getLatestUpdate"
+        android:text="Get Latest Daily Cases"
+        android:textAllCaps="true"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/latestalerts"/>
+        app:layout_constraintTop_toBottomOf="@+id/latestalerts" />
 
     <TextView
         android:id="@+id/notif1View"
@@ -90,13 +90,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:textSize="18dp"
         android:text="Jobkeeper Extended for 6 months"
-        android:textStyle="bold"
         android:textColor="@color/colorWhite"
+        android:textSize="18dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/latestnotification"/>
+        app:layout_constraintTop_toBottomOf="@id/latestnotification" />
 
     <TextView
         android:id="@+id/notif1DetailView"
@@ -104,12 +104,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:gravity="center"
-        android:textSize="13dp"
         android:text="Rate will be reduced to $1200/fortnight from September 28"
         android:textColor="@color/colorWhite"
+        android:textSize="13dp"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/notif1View"/>
+        app:layout_constraintTop_toBottomOf="@id/notif1View" />
 
     <TextView
         android:id="@+id/notif2View"
@@ -117,13 +117,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:gravity="center"
-        android:textSize="18dp"
         android:text="Woolworths recommends wearing masks while shopping"
-        android:textStyle="bold"
         android:textColor="@color/colorWhite"
+        android:textSize="18dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/notif1DetailView"/>
+        app:layout_constraintTop_toBottomOf="@id/notif1DetailView" />
 
     <TextView
         android:id="@+id/notif2DetailView"
@@ -131,27 +131,27 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:gravity="center"
-        android:textSize="13dp"
         android:text="Woolworths is strongly encouraging customers across its stores in Sydney's South West to wear masks while shopping"
         android:textColor="@color/colorWhite"
+        android:textSize="13dp"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/notif2View"/>
+        app:layout_constraintTop_toBottomOf="@id/notif2View" />
 
     <TextView
         android:id="@+id/latestnotification"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:hint="Latest Alerts"
         android:gravity="center"
+        android:hint="Latest Alerts"
+        android:padding="10dp"
+        android:textColorHint="@color/colorLogin"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColorHint="@color/colorLogin"
-        android:padding="10dp"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/latestdailycases"/>
+        app:layout_constraintTop_toBottomOf="@id/latestdailycases" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

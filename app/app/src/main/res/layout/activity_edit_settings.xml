@@ -43,15 +43,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Edit Information"
         android:gravity="center"
+        android:hint="Edit Information"
+        android:padding="16dp"
+        android:textColorHint="@color/colorLogin"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textColorHint="@color/colorLogin"
-        android:padding="16dp"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/icon"/>
+        app:layout_constraintTop_toBottomOf="@id/icon" />
 
     <Spinner
         android:id="@+id/industry_spinner_settings"
@@ -64,10 +64,10 @@
         android:padding="5dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
-        tools:ignore="MissingConstraints"
         app:layout_constraintEnd_toStartOf="@id/guideline_middle"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/personalinfo"/>
+        app:layout_constraintTop_toBottomOf="@id/personalinfo"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/businessNameEdit"
@@ -106,10 +106,10 @@
         android:background="#FFFFFF"
         android:text="Edit"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_middle"
-        app:layout_constraintTop_toBottomOf="@id/personalinfo" />
+        app:layout_constraintTop_toBottomOf="@id/personalinfo"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/businessEditButton"
@@ -119,10 +119,10 @@
         android:background="#FFFFFF"
         android:text="Edit"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_middle"
-        app:layout_constraintTop_toBottomOf="@id/industryEditButton" />
+        app:layout_constraintTop_toBottomOf="@id/industryEditButton"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/phoneEditButton"
@@ -132,11 +132,10 @@
         android:background="#FFFFFF"
         android:text="Edit"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_middle"
-        app:layout_constraintTop_toBottomOf="@id/businessEditButton" />
-
+        app:layout_constraintTop_toBottomOf="@id/businessEditButton"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

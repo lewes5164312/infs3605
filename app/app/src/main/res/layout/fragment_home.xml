@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5"/>
+        app:layout_constraintGuide_percent="0.5" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/c4"
@@ -143,23 +143,23 @@
         android:id="@+id/textViewNotifications"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2 notifications"
         android:layout_marginRight="25dp"
+        android:onClick="notificationTextClick"
+        android:text="2 notifications"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintTop_toBottomOf="@+id/dashboard"
-        tools:ignore="MissingConstraints"
-        android:onClick="notificationTextClick"/>
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/news"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="25dp"
         android:gravity="right"
         android:text="What's New?"
-        android:layout_marginRight="25dp"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
         android:textStyle="bold"
@@ -179,7 +179,6 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         tools:ignore="MissingConstraints" />
-
 
 
     <ImageView
@@ -234,11 +233,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="25dp"
         android:gravity="right"
         android:text="Crisis"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
-        android:layout_marginRight="25dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintTop_toBottomOf="@+id/dashboard"
@@ -248,8 +247,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="70dp"
-        app:layout_constraintTop_toBottomOf="@+id/c3"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/c3"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="239dp">
 

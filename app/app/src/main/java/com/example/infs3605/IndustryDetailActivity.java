@@ -17,14 +17,12 @@ public class IndustryDetailActivity extends AppCompatActivity {
     private TextView industryGeneralTV;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.industry_detail);
 
-        SharedPreferences sp1=this.getSharedPreferences("Login",0);
+        SharedPreferences sp1 = this.getSharedPreferences("Login", 0);
         String industry = sp1.getString("Industry", null);
         int industryInt = Integer.parseInt(industry);
 

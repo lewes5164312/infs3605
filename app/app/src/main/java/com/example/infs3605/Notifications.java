@@ -8,7 +8,7 @@ import android.os.Build;
 import java.util.Collections;
 
 public class Notifications extends Application {
-public static final String CHANNEL_1_ID = "channel1";
+    public static final String CHANNEL_1_ID = "channel1";
     public static final String CHANNEL_2_ID = "channel2";
 
 

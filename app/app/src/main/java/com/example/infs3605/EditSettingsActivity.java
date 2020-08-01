@@ -23,7 +23,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 
-public class EditSettingsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener  {
+public class EditSettingsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     String[] settingIndustry = {"Choose Industry", "Office Environment", "Retail & Grocery", "Construction & Tradespeople",
             "Restaurants & Cafes", "Agriculture", "Places of Worship", "Funeral & Wakes", "Wedding & Receptions",
             "Pubs, Clubs, Casinos & Bars", "Libraries", "Auction & Open Houses", "Hotels & Accomodation"};
@@ -73,19 +73,18 @@ public class EditSettingsActivity extends AppCompatActivity implements AdapterVi
     }
 
     private void applyIndustryEdit() {
-        if (currentSelection==0) {
+        if (currentSelection == 0) {
             Toast.makeText(getApplicationContext(), "Please Select Industry!", Toast.LENGTH_LONG).show();
             return;
         }
         SharedPreferences sp = getSharedPreferences("Login", 0);
         SharedPreferences.Editor ed = sp.edit();
-        String industry = String.valueOf(currentSelection-1);
-        ed.putString("Industry",industry);
+        String industry = String.valueOf(currentSelection - 1);
+        ed.putString("Industry", industry);
         ed.commit();
 
 
-
-        SharedPreferences sp1=this.getSharedPreferences("Login",0);
+        SharedPreferences sp1 = this.getSharedPreferences("Login", 0);
         String emailCurrent = sp1.getString("Email", null);
 
         DatabaseReference users = FirebaseDatabase.getInstance().getReference().child("Users");
@@ -93,8 +92,8 @@ public class EditSettingsActivity extends AppCompatActivity implements AdapterVi
         email.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                for(DataSnapshot email: snapshot.getChildren()){
-                    email.getRef().child("industry").setValue(String.valueOf(currentSelection-1));
+                for (DataSnapshot email : snapshot.getChildren()) {
+                    email.getRef().child("industry").setValue(String.valueOf(currentSelection - 1));
                 }
             }
 
@@ -120,10 +119,10 @@ public class EditSettingsActivity extends AppCompatActivity implements AdapterVi
             Toast.makeText(getApplicationContext(), "Business Name is blank, please Business Name", Toast.LENGTH_LONG).show();
             return;
         }
-        ed.putString("BusinessName",name);
+        ed.putString("BusinessName", name);
         ed.commit();
 
-        SharedPreferences sp1=this.getSharedPreferences("Login",0);
+        SharedPreferences sp1 = this.getSharedPreferences("Login", 0);
         String emailCurrent = sp1.getString("Email", null);
 
         DatabaseReference users = FirebaseDatabase.getInstance().getReference().child("Users");
@@ -131,7 +130,7 @@ public class EditSettingsActivity extends AppCompatActivity implements AdapterVi
         email.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                for(DataSnapshot email: snapshot.getChildren()){
+                for (DataSnapshot email : snapshot.getChildren()) {
                     email.getRef().child("businessname").setValue(name);
                 }
             }
@@ -150,7 +149,7 @@ public class EditSettingsActivity extends AppCompatActivity implements AdapterVi
         SharedPreferences sp = getSharedPreferences("Login", 0);
         SharedPreferences.Editor ed = sp.edit();
 
-        phoneNumber= findViewById(R.id.phoneNumberEdit);
+        phoneNumber = findViewById(R.id.phoneNumberEdit);
 
         final String phone;
         phone = phoneNumber.getText().toString();
@@ -158,10 +157,10 @@ public class EditSettingsActivity extends AppCompatActivity implements AdapterVi
             Toast.makeText(getApplicationContext(), "Phone Number is blank, please enter phone number", Toast.LENGTH_LONG).show();
             return;
         }
-        ed.putString("PhoneNumber",phone);
+        ed.putString("PhoneNumber", phone);
         ed.commit();
 
-        SharedPreferences sp1=this.getSharedPreferences("Login",0);
+        SharedPreferences sp1 = this.getSharedPreferences("Login", 0);
         String emailCurrent = sp1.getString("Email", null);
 
         DatabaseReference users = FirebaseDatabase.getInstance().getReference().child("Users");
@@ -169,7 +168,7 @@ public class EditSettingsActivity extends AppCompatActivity implements AdapterVi
         email.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                for(DataSnapshot email: snapshot.getChildren()){
+                for (DataSnapshot email : snapshot.getChildren()) {
                     email.getRef().child("phonenumber").setValue(phone);
                 }
             }
