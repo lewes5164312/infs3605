@@ -38,7 +38,7 @@
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/personalinfo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
     <Spinner
         android:id="@+id/industry_spinner_settings"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="33dp"
         android:layout_marginTop="10dp"
         android:background="#4DFFFFFF"
         android:backgroundTint="#FFFFFF"
@@ -70,82 +70,39 @@
         app:layout_constraintTop_toBottomOf="@id/personalinfo"/>
 
     <EditText
-        android:id="@+id/businessname"
+        android:id="@+id/businessNameEdit"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/text_background"
-        android:hint="Business Name/Industry"
-        android:textColorHint="@color/colorLogin"
+        android:layout_height="33dp"
+        android:layout_marginTop="20dp"
+        android:background="#4DFFFFFF"
+        android:hint="Business Name"
         android:padding="5dp"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        android:textColor="#FFFFFF"
+        android:textColorHint="@color/colorLogin"
+        app:layout_constraintEnd_toStartOf="@id/guideline_middle"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/industry_spinner_settings"/>
+        app:layout_constraintTop_toBottomOf="@id/industry_spinner_settings" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/phoneNumberEdit"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/text_background"
-        android:hint="Email"
-        android:textColorHint="@color/colorLogin"
+        android:layout_height="33dp"
+        android:layout_marginTop="20dp"
+        android:background="#4DFFFFFF"
+        android:hint="Phone Number"
         android:padding="5dp"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/businessname"/>
-
-    <EditText
-        android:id="@+id/mobile"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/text_background"
-        android:hint="Mobile Number"
+        android:textColor="#FFFFFF"
         android:textColorHint="@color/colorLogin"
-        android:padding="5dp"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintEnd_toStartOf="@id/guideline_middle"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/email"/>
+        app:layout_constraintTop_toBottomOf="@id/businessNameEdit" />
 
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="55dp"
-        android:layout_height="33dp"
-        android:background="#FFFFFF"
-        android:text="Edit"
-        android:textStyle="bold"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="332dp"
-        tools:layout_editor_absoluteY="285dp" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="55dp"
-        android:layout_height="33dp"
-        android:background="#FFFFFF"
-        android:text="Edit"
-        android:textStyle="bold"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="332dp"
-        tools:layout_editor_absoluteY="329dp" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="55dp"
-        android:layout_height="33dp"
-        android:background="#FFFFFF"
-        android:text="Edit"
-        android:textStyle="bold"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="332dp"
-        tools:layout_editor_absoluteY="241dp" />
 
     <Button
         android:id="@+id/industryEditButton"
         android:layout_width="55dp"
         android:layout_height="33dp"
+        android:layout_marginTop="10dp"
         android:background="#FFFFFF"
         android:text="Edit"
         android:textStyle="bold"
@@ -153,5 +110,33 @@
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_middle"
         app:layout_constraintTop_toBottomOf="@id/personalinfo" />
+
+    <Button
+        android:id="@+id/businessEditButton"
+        android:layout_width="55dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
+        android:text="Edit"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_middle"
+        app:layout_constraintTop_toBottomOf="@id/industryEditButton" />
+
+    <Button
+        android:id="@+id/phoneEditButton"
+        android:layout_width="55dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
+        android:text="Edit"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_middle"
+        app:layout_constraintTop_toBottomOf="@id/businessEditButton" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

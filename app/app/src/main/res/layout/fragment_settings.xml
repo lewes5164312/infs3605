@@ -116,19 +116,6 @@
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
         app:layout_constraintTop_toBottomOf="@id/emailSetting" />
-
-    <Switch
-        android:id="@+id/alertswitch"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Receive Alerts"
-        android:textColor="#FFFFFF"
-        android:layout_marginTop="13dp"
-        android:padding="13dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-        app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumberSetting"/>
-
     <Button
         android:id="@+id/settings"
         android:layout_width="0dp"
@@ -141,7 +128,7 @@
         android:onClick="editSettingClick"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/alertswitch"/>
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberSetting"/>
 
 
 

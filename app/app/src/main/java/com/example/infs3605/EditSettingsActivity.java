@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -26,6 +27,11 @@ public class EditSettingsActivity extends AppCompatActivity implements AdapterVi
 
     int currentSelection = 0;
     Button industryEditBTN;
+    Button businessNameEditBTN;
+    EditText businessName;
+    Button phoneNumberEditBTN;
+    EditText phoneNumber;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +50,20 @@ public class EditSettingsActivity extends AppCompatActivity implements AdapterVi
         industryEditBTN.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 applyIndustryEdit();
+            }
+        });
+
+        businessNameEditBTN = findViewById(R.id.businessEditButton);
+        businessNameEditBTN.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                applyBusinessNameEdit();
+            }
+        });
+
+        phoneNumberEditBTN = findViewById(R.id.phoneEditButton);
+        phoneNumberEditBTN.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                applyPhoneNumberEdit();
             }
         });
     }
@@ -80,6 +100,76 @@ public class EditSettingsActivity extends AppCompatActivity implements AdapterVi
         });
 
         Toast.makeText(getApplicationContext(), "Industry Edit Successful!", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+        startActivity(intent);
+    }
+
+    private void applyBusinessNameEdit() {
+        SharedPreferences sp = getSharedPreferences("Login", 0);
+        SharedPreferences.Editor ed = sp.edit();
+
+        businessName = findViewById(R.id.businessNameEdit);
+
+        final String name;
+        name = businessName.getText().toString();
+
+        ed.putString("BusinessName",name);
+        ed.commit();
+
+        SharedPreferences sp1=this.getSharedPreferences("Login",0);
+        String emailCurrent = sp1.getString("Email", null);
+
+        DatabaseReference users = FirebaseDatabase.getInstance().getReference().child("Users");
+        Query email = users.orderByChild("email").equalTo(emailCurrent);
+        email.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                for(DataSnapshot email: snapshot.getChildren()){
+                    email.getRef().child("businessname").setValue(name);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
+        Toast.makeText(getApplicationContext(), "Business Edit Successful!", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+        startActivity(intent);
+    }
+
+    private void applyPhoneNumberEdit() {
+        SharedPreferences sp = getSharedPreferences("Login", 0);
+        SharedPreferences.Editor ed = sp.edit();
+
+        phoneNumber= findViewById(R.id.phoneNumberEdit);
+
+        final String phone;
+        phone = phoneNumber.getText().toString();
+
+        ed.putString("PhoneNumber",phone);
+        ed.commit();
+
+        SharedPreferences sp1=this.getSharedPreferences("Login",0);
+        String emailCurrent = sp1.getString("Email", null);
+
+        DatabaseReference users = FirebaseDatabase.getInstance().getReference().child("Users");
+        Query email = users.orderByChild("email").equalTo(emailCurrent);
+        email.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                for(DataSnapshot email: snapshot.getChildren()){
+                    email.getRef().child("phonenumber").setValue(phone);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
+        Toast.makeText(getApplicationContext(), "Phone Number Edit Successful!", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
         startActivity(intent);
     }
