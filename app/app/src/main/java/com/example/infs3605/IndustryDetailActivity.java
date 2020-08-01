@@ -46,9 +46,8 @@ public class IndustryDetailActivity extends AppCompatActivity {
         industryDistancingTV.setText(industrySelected.getDistancing());
         industryHygieneTV.setText(industrySelected.getHygiene());
         industryWellbeingTV.setText(industrySelected.getWellbeing());
-        industryGeneralTV.setText(MainActivity.getIndustryById(3).getGeneral());
-
-
+        //12 is the general information column of the API
+        industryGeneralTV.setText(MainActivity.getIndustryById(12).getGeneral());
 
     }
 }

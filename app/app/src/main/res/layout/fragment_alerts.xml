@@ -37,7 +37,7 @@
         android:layout_marginTop="10dp"
         android:hint="Alerts"
         android:gravity="center"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:textColorHint="@color/colorLogin"
         android:padding="12dp"
@@ -85,7 +85,7 @@
         app:layout_constraintTop_toBottomOf="@+id/latestalerts"/>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/notif1View"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -99,7 +99,7 @@
         app:layout_constraintTop_toBottomOf="@id/latestnotification"/>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/notif1DetailView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -109,10 +109,10 @@
         android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/textView2"/>
+        app:layout_constraintTop_toBottomOf="@id/notif1View"/>
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/notif2View"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -123,10 +123,10 @@
         android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/textView3"/>
+        app:layout_constraintTop_toBottomOf="@id/notif1DetailView"/>
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/notif2DetailView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -136,19 +136,19 @@
         android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/textView4"/>
+        app:layout_constraintTop_toBottomOf="@id/notif2View"/>
 
     <TextView
         android:id="@+id/latestnotification"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:hint="Latest Alerts"
         android:gravity="center"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:textColorHint="@color/colorLogin"
-        android:padding="16dp"
+        android:padding="10dp"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
         app:layout_constraintTop_toBottomOf="@id/latestdailycases"/>

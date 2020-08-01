@@ -3,6 +3,7 @@ package com.example.infs3605;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -23,7 +24,9 @@ import com.google.firebase.database.ValueEventListener;
 
 
 public class EditSettingsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener  {
-    String[] settingIndustry = {"Choose Industry", "Office Environment", "Retail and Grocery", "Construction & Tradespeople", "General"};
+    String[] settingIndustry = {"Choose Industry", "Office Environment", "Retail & Grocery", "Construction & Tradespeople",
+            "Restaurants & Cafes", "Agriculture", "Places of Worship", "Funeral & Wakes", "Wedding & Receptions",
+            "Pubs, Clubs, Casinos & Bars", "Libraries", "Auction & Open Houses", "Hotels & Accomodation"};
 
     int currentSelection = 0;
     Button industryEditBTN;
@@ -59,6 +62,7 @@ public class EditSettingsActivity extends AppCompatActivity implements AdapterVi
                 applyBusinessNameEdit();
             }
         });
+
 
         phoneNumberEditBTN = findViewById(R.id.phoneEditButton);
         phoneNumberEditBTN.setOnClickListener(new View.OnClickListener() {
@@ -112,7 +116,10 @@ public class EditSettingsActivity extends AppCompatActivity implements AdapterVi
 
         final String name;
         name = businessName.getText().toString();
-
+        if (TextUtils.isEmpty(name)) {
+            Toast.makeText(getApplicationContext(), "Business Name is blank, please Business Name", Toast.LENGTH_LONG).show();
+            return;
+        }
         ed.putString("BusinessName",name);
         ed.commit();
 
@@ -147,7 +154,10 @@ public class EditSettingsActivity extends AppCompatActivity implements AdapterVi
 
         final String phone;
         phone = phoneNumber.getText().toString();
-
+        if (TextUtils.isEmpty(phone)) {
+            Toast.makeText(getApplicationContext(), "Phone Number is blank, please enter phone number", Toast.LENGTH_LONG).show();
+            return;
+        }
         ed.putString("PhoneNumber",phone);
         ed.commit();
 

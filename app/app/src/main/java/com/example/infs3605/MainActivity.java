@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String URL = "https://newsapi.org/v2/top-headlines?q=covid&country=au&from=" + getDate() + "&sortBypopularity&apiKey=8ef436de7eae4edda9e7bda8b6c41ef6";
 
     //industryAPI
-    private static final String industryURL = "https://api.jsonbin.io/b/5f0c16e85d4af74b012b85a3/6";
+    private static final String industryURL = "https://api.jsonbin.io/b/5f0c16e85d4af74b012b85a3/7";
 
     private static final HashMap<Integer, Article> articleList = new HashMap<>();
     private static final HashMap<Integer, Industry> industryList = new HashMap<>();

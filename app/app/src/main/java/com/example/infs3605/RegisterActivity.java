@@ -23,7 +23,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener  {
 
-    String[] registerIndustry = {"Choose Industry", "Office Environment", "Retail and Grocery", "Construction & Tradespeople", "General"};
+    String[] registerIndustry = {"Choose Industry", "Office Environment", "Retail & Grocery", "Construction & Tradespeople",
+            "Restaurants & Cafes", "Agriculture", "Places of Worship", "Funeral & Wakes", "Wedding & Receptions",
+            "Pubs, Clubs, Casinos & Bars", "Libraries", "Auction & Open Houses", "Hotels & Accomodation"};
 
     int currentSelection = 0;
 
