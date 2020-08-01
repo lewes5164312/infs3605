@@ -20,10 +20,4 @@
         android:onClick="getLatestUpdate"
         android:text="Get latest NSW Daily Cases" />
 
-    <Switch
-        android:id="@+id/alertswitch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Receive Alerts"
-        android:textColor="#FFFFFF" />
 </LinearLayout>

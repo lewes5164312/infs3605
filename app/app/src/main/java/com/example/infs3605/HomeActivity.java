@@ -54,6 +54,9 @@ public class HomeActivity extends AppCompatActivity {
 
     private static final String caseURL =
             "https://interactive.guim.co.uk/docsdata/1q5gdePANXci8enuiS4oHUJxcxC13d6bjMRSicakychE.json?fbclid=IwAR0Zpu2s_UDMGyWuwmeSLRnv3t366Cg_ivAh_PzXdJ1tXZd1sGDQxPHqeYc";
+    //this is the guardian Australian COVID-19 API which contains cumulative case numbers by state
+    //the app will calculate the daily increase as notification later on the onclick method
+    //through subtracting the previous days record to get the new case amounts
 
     int latestcount=0;
     int previouscount=0;

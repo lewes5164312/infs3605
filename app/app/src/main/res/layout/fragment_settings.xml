@@ -6,76 +6,144 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_login">
 
-    <TextView
-        android:id="@+id/nameSetting"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="First Name + Last Name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="24dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="24dp" />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="78dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ic_flattr"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="User Details"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColorHint="@color/colorLogin"
+        android:padding="16dp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/icon"/>
+
+    <TextView
+        android:id="@+id/nameSetting"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:background="#4DFFFFFF"
+        android:hint="name"
+        android:inputType="textEmailAddress"
+        android:padding="13dp"
         android:textColor="#FFFFFF"
-        tools:ignore="MissingConstraints" />
+        android:textColorHint="@color/colorLogin"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/icon" />
 
     <TextView
         android:id="@+id/industrySetting"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Industry Detail"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_marginTop="13dp"
+        android:background="#4DFFFFFF"
+        android:hint="industry"
         android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@+id/nameSetting"
-        tools:ignore="MissingConstraints" />
+        android:inputType="textEmailAddress"
+        android:padding="13dp"
+        android:textColorHint="@color/colorLogin"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/nameSetting" />
 
     <TextView
         android:id="@+id/businessNameSetting"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Business Name Detail"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_marginTop="13dp"
+        android:background="#4DFFFFFF"
         android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@+id/industrySetting"
-        tools:ignore="MissingConstraints" />
+        android:hint="Cat's Bakery"
+        android:textColorHint="@color/colorLogin"
+        android:padding="13dp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/industrySetting" />
 
     <TextView
         android:id="@+id/emailSetting"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Email Detail"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_marginTop="13dp"
+        android:background="#4DFFFFFF"
         android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@+id/businessNameSetting"
-        tools:ignore="MissingConstraints" />
+        android:textColorHint="@color/colorLogin"
+        android:padding="13dp"
+        android:hint="email"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/businessNameSetting" />
 
     <TextView
         android:id="@+id/phoneNumberSetting"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Phone Number Detail"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@+id/emailSetting"
-        tools:ignore="MissingConstraints" />
-
-
-    <Spinner
-        android:id="@+id/setting_industry_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="13dp"
         android:background="#4DFFFFFF"
-        android:backgroundTint="#FFFFFF"
-        android:hint="Industry"
-        android:padding="5dp"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
+        android:hint="phone number"
+        android:textColorHint="@color/colorLogin"
+        android:padding="13dp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/emailSetting" />
+
+    <Switch
+        android:id="@+id/alertswitch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Receive Alerts"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="13dp"
+        android:padding="13dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@+id/phoneNumberSetting"/>
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:id="@+id/settings"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="edit settings"
+        android:layout_marginTop="13dp"
+        android:text="Edit Details"
+        android:textAllCaps="true"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/button_background"
         android:onClick="editSettingClick"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumberSetting"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/alertswitch"/>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
