@@ -1,129 +1,213 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#FFFFFF">
+    android:background="@drawable/background_login"
+    tools:context=".MainActivity">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <LinearLayout
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="24dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="24dp" />
+
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="97dp"
+                android:layout_height="111dp"
+                android:layout_marginTop="70dp"
+                android:src="@drawable/ic_flattr"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+                app:layout_constraintStart_toStartOf="@+id/guideline_left"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/industryName"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
                 android:text="Industry Name"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-                tools:ignore="MissingConstraints" />
+                android:textColor="@color/colorWhite"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/guideline_right"
+                app:layout_constraintStart_toStartOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/icon" />
 
             <TextView
                 android:id="@+id/industryOpen"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="Industry Open"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                tools:ignore="MissingConstraints" />
+                android:textColor="@color/colorWhite"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/guideline_right"
+                app:layout_constraintStart_toStartOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/industryName" />
 
             <TextView
                 android:id="@+id/industryOpenText"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Industry Open Detail Text"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                tools:ignore="MissingConstraints" />
+                android:layout_marginTop="10dp"
+                android:text="Insert Text"
+                android:textColor="@color/colorWhite"
+                android:textSize="15dp"
+                app:layout_constraintEnd_toStartOf="@id/guideline_right"
+                app:layout_constraintStart_toStartOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/industryOpen" />
 
             <TextView
-            android:id="@+id/industryLimit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Industry Limit"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            tools:ignore="Limits,MissingConstraints" />
+                android:id="@+id/industryLimit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Industry Limit"
+                android:textColor="@color/colorWhite"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/guideline_right"
+                app:layout_constraintStart_toStartOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/industryOpenText" />
 
             <TextView
                 android:id="@+id/industryLimitText"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Industry Limit Detail Text"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                tools:ignore="MissingConstraints" />
+                android:layout_marginTop="10dp"
+                android:text="Insert Text"
+                android:textColor="@color/colorWhite"
+                android:textSize="15dp"
+                app:layout_constraintEnd_toStartOf="@id/guideline_right"
+                app:layout_constraintStart_toStartOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/industryLimit" />
 
             <TextView
                 android:id="@+id/industryDistancing"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="Industry Distancing"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                tools:ignore="Limits,MissingConstraints" />
+                android:textColor="@color/colorWhite"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/guideline_right"
+                app:layout_constraintStart_toStartOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/industryLimitText" />
 
             <TextView
                 android:id="@+id/industryDistancingText"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Industry Distancing Detail Text"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                tools:ignore="MissingConstraints" />
+                android:layout_marginTop="10dp"
+                android:text="Insert Text"
+                android:textColor="@color/colorWhite"
+                android:textSize="15dp"
+                app:layout_constraintEnd_toStartOf="@id/guideline_right"
+                app:layout_constraintStart_toStartOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/industryDistancing" />
 
             <TextView
                 android:id="@+id/industryHygiene"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="Industry Hygiene"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                tools:ignore="Limits,MissingConstraints" />
+                android:textColor="@color/colorWhite"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/guideline_right"
+                app:layout_constraintStart_toStartOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/industryDistancingText" />
 
             <TextView
                 android:id="@+id/industryHygieneText"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Industry Hygiene Detail Text"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                tools:ignore="MissingConstraints" />
+                android:layout_marginTop="10dp"
+                android:text="Insert Text"
+                android:textColor="@color/colorWhite"
+                android:textSize="15dp"
+                app:layout_constraintEnd_toStartOf="@id/guideline_right"
+                app:layout_constraintStart_toStartOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/industryHygiene" />
 
             <TextView
                 android:id="@+id/industryWellbeing"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="Industry Wellbeing"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                tools:ignore="Limits,MissingConstraints" />
+                android:textColor="@color/colorWhite"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/guideline_right"
+                app:layout_constraintStart_toStartOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/industryHygieneText" />
 
             <TextView
                 android:id="@+id/industryWellbeingText"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Industry Wellbeing Detail Text"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                tools:ignore="MissingConstraints" />
+                android:layout_marginTop="10dp"
+                android:text="Insert Text"
+                android:textColor="@color/colorWhite"
+                android:textSize="15dp"
+                app:layout_constraintEnd_toStartOf="@id/guideline_right"
+                app:layout_constraintStart_toStartOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/industryWellbeing" />
 
             <TextView
                 android:id="@+id/industryGeneral"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="Industry General"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                tools:ignore="Limits,MissingConstraints" />
+                android:textColor="@color/colorWhite"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/guideline_right"
+                app:layout_constraintStart_toStartOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/industryWellbeingText" />
 
             <TextView
                 android:id="@+id/industryGeneralText"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Industry General Detail Text"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                tools:ignore="MissingConstraints" />
+                android:layout_marginTop="10dp"
+                android:text="Insert Text"
+                android:textColor="@color/colorWhite"
+                android:textSize="15dp"
+                app:layout_constraintEnd_toStartOf="@id/guideline_right"
+                app:layout_constraintStart_toStartOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/industryGeneral" />
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-        </LinearLayout>
     </ScrollView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
