@@ -10,12 +10,17 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         app:layout_constraintStart_toStartOf="parent">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/rounded_bg"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.Guideline
@@ -32,15 +37,6 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_end="24dp" />
 
-            <ImageView
-                android:id="@+id/icon"
-                android:layout_width="97dp"
-                android:layout_height="111dp"
-                android:layout_marginTop="70dp"
-                android:src="@drawable/ic_flattr"
-                app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-                app:layout_constraintStart_toStartOf="@+id/guideline_left"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/industryName"
@@ -49,12 +45,12 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:text="Industry Name"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBlack"
                 android:textSize="30dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@id/guideline_right"
                 app:layout_constraintStart_toStartOf="@id/guideline_left"
-                app:layout_constraintTop_toBottomOf="@id/icon" />
+                tools:ignore="MissingConstraints" />
 
             <TextView
                 android:id="@+id/industryOpen"
@@ -62,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Industry Open"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBlack"
                 android:textSize="25dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@id/guideline_right"
@@ -75,7 +71,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Insert Text"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="#FFFFFF"
                 android:textSize="15dp"
                 app:layout_constraintEnd_toStartOf="@id/guideline_right"
                 app:layout_constraintStart_toStartOf="@id/guideline_left"
@@ -87,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Industry Limit"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBlack"
                 android:textSize="25dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@id/guideline_right"
@@ -100,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Insert Text"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBlack"
                 android:textSize="15dp"
                 app:layout_constraintEnd_toStartOf="@id/guideline_right"
                 app:layout_constraintStart_toStartOf="@id/guideline_left"
@@ -112,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Industry Distancing"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBlack"
                 android:textSize="25dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@id/guideline_right"
@@ -125,7 +122,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Insert Text"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="#FFFFFF"
                 android:textSize="15dp"
                 app:layout_constraintEnd_toStartOf="@id/guideline_right"
                 app:layout_constraintStart_toStartOf="@id/guideline_left"
@@ -137,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Industry Hygiene"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBlack"
                 android:textSize="25dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@id/guideline_right"
@@ -150,7 +148,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Insert Text"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="#FFFFFF"
                 android:textSize="15dp"
                 app:layout_constraintEnd_toStartOf="@id/guideline_right"
                 app:layout_constraintStart_toStartOf="@id/guideline_left"
@@ -162,7 +161,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Industry Wellbeing"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBlack"
                 android:textSize="25dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@id/guideline_right"
@@ -175,7 +174,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Insert Text"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBlack"
                 android:textSize="15dp"
                 app:layout_constraintEnd_toStartOf="@id/guideline_right"
                 app:layout_constraintStart_toStartOf="@id/guideline_left"
@@ -187,7 +186,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Industry General"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBlack"
                 android:textSize="25dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@id/guideline_right"
@@ -200,7 +199,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Insert Text"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBlack"
                 android:textSize="15dp"
                 app:layout_constraintEnd_toStartOf="@id/guideline_right"
                 app:layout_constraintStart_toStartOf="@id/guideline_left"
