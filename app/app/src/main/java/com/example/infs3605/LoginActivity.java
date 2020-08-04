@@ -47,8 +47,8 @@ private Button signupBTN;
         signupBTN = findViewById(R.id.signup);
         mAuth = FirebaseAuth.getInstance();
 
-        //a login bypass button was used to make developing easy
-        //fakeloginBTN.setVisibility(View.INVISIBLE);
+        //a login bypass button was previously used to make developing easy
+        fakeloginBTN.setVisibility(View.INVISIBLE);
 
         loginBTN.setOnClickListener(new View.OnClickListener() {
             @Override

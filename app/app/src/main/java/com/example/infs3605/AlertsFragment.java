@@ -66,7 +66,7 @@ public class AlertsFragment extends Fragment {
         notif1TV.setText(industrySelected.getNotification1Title());
         notif1textTV.setText(industrySelected.getNotification1Text());
         notif2TV.setText(industrySelected.getNotification2Title());
-        notif2textTV.setText(industrySelected.getNotification2Title());
+        notif2textTV.setText(industrySelected.getNotification2Text());
 
 
         return view;

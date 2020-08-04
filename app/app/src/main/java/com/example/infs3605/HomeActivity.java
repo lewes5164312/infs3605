@@ -200,7 +200,7 @@ public class HomeActivity extends AppCompatActivity {
                                     Notification notification = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_1_ID)
                                             .setSmallIcon(R.drawable.ic_check)
                                             .setContentTitle ("NSW records " + (latestcount - previouscount) + " new cases")
-                                            .setContentText("On Date " + getDateDaysAgo(2))
+                                            .setContentText("On Date " + getDateDaysAgo(2) + ", now total " + latestcount + " cases")
                                             .setPriority(NotificationCompat.PRIORITY_HIGH)
                                             .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                                             .build();
